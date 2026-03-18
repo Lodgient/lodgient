@@ -5,7 +5,7 @@
 :root{
   --bg:#0B0F1A;--bg2:#111827;--bg-card:#161D2F;--bg-card-h:#1C2540;
   --txt:#F4F0EB;--txt2:#9BA3B5;--txt3:#6B7280;
-  --gold:#C8A255;--gold-l:#D4B876;--gold-dim:rgba(200,162,85,0.12);--gold-b:rgba(200,162,85,0.25);
+  --gold:#C8A255;--gold-l:#D4B876;--gold-dim:rgba(200,162,85,0.12);--gold-b:rgba(200,162,85,0.25);--gold-num:rgba(200,162,85,0.45);
   --border:#1F2937;--border2:#2A3450;
   --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;
   --max:1200px;--pad:clamp(80px,12vw,140px);
@@ -27,11 +27,25 @@ img{max-width:100%;display:block}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.5px;border:none;cursor:pointer;transition:all .3s ease;border-radius:2px;text-decoration:none}
-.btn-p{background:var(--gold);color:#0B0F1A}
-.btn-p:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-p{background:var(--gold);color:#0B0F1A !important}
+.btn-p:hover{background:var(--gold-l);transform:translateY(-1px);color:#0B0F1A !important}
 .btn-o{background:transparent;color:var(--txt);border:1px solid var(--border2)}
 .btn-o:hover{border-color:var(--gold);color:var(--gold)}
 .btn-sm{padding:10px 24px;font-size:13px}
+
+/* SVG Icons */
+.icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:10px;margin-bottom:20px}
+.icon svg{width:24px;height:24px}
+.icon-gold{background:linear-gradient(135deg,rgba(200,162,85,0.2),rgba(200,162,85,0.05))}
+.icon-gold svg{stroke:var(--gold)}
+.icon-blue{background:linear-gradient(135deg,rgba(99,179,237,0.2),rgba(99,179,237,0.05))}
+.icon-blue svg{stroke:#63B3ED}
+.icon-green{background:linear-gradient(135deg,rgba(104,211,145,0.2),rgba(104,211,145,0.05))}
+.icon-green svg{stroke:#68D391}
+.icon-orange{background:linear-gradient(135deg,rgba(252,129,74,0.2),rgba(252,129,74,0.05))}
+.icon-orange svg{stroke:#FC814A}
+.icon-purple{background:linear-gradient(135deg,rgba(183,148,244,0.2),rgba(183,148,244,0.05))}
+.icon-purple svg{stroke:#B794F4}
 
 /* Grain */
 body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
