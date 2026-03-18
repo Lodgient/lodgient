@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Lodgient</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px;align-items:start}
+.story-block{margin-bottom:48px}
+.story-block h3{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:12px}
+.story-block p{font-size:16px;color:var(--txt2);line-height:1.75}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.val-card{padding:40px;background:var(--bg-card);border:1px solid var(--border)}
+.val-card h4{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:8px}
+.val-card p{font-size:14px;color:var(--txt2);line-height:1.7}
+.val-num{font-family:var(--serif);font-size:36px;color:var(--gold-dim);margin-bottom:16px}
+.timeline{margin-top:48px;position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:1px;background:var(--border2)}
+.tl-item{position:relative;margin-bottom:40px}
+.tl-item::before{content:'';position:absolute;left:-34px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.tl-item h4{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:4px}
+.tl-item .tl-date{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:0.5px;margin-bottom:8px;display:block}
+.tl-item p{font-size:15px;color:var(--txt2);line-height:1.7;max-width:500px}
+.locations{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.loc{padding:32px;background:var(--bg-card);border:1px solid var(--border);text-align:center}
+.loc h4{font-family:var(--serif);font-size:18px;margin-bottom:4px}
+.loc p{font-size:13px;color:var(--txt3)}
+.loc .flag{font-size:32px;margin-bottom:12px}
+@media(max-width:900px){.story-grid,.values-grid,.locations{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+  <ul class="nav-links">
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">☰</button>
+</div></nav>
+
+<section class="page-hero">
+<div class="container">
+  <div class="eyebrow">About Lodgient</div>
+  <h1>Born from repeated <em>real-world experience.</em></h1>
+  <p>The same friction. Different hotel. Every time. Across premium 4- and 5-star properties, one pattern kept repeating — and it wasn't a technology problem. It was an operations problem.</p>
+</div>
+</section>
+
+<section class="spad">
+<div class="container">
+  <div class="story-grid">
+    <div>
+      <div class="story-block">
+        <h3>The Pattern</h3>
+        <p>Hotels invest heavily in property management systems, point-of-sale platforms, and communication tools. But between these systems — in the handoffs between departments, the shift changes, the late-night calls — things fall through the cracks. Revenue leaks. Guest experiences break down. Staff burn out from working around broken processes.</p>
+      </div>
+      <div class="story-block">
+        <h3>The Realisation</h3>
+        <p>This wasn't a people problem. Every hotel we worked with had talented, dedicated staff. It was an infrastructure problem. Hotels had systems of record but no system of action — nothing to ensure that what should happen, actually happened.</p>
+      </div>
+      <div class="story-block">
+        <h3>The Solution</h3>
+        <p>Lodgient was built to close that gap. We started with voice intelligence — what became RoomService AI — solving the most immediate pain point: missed calls, lost orders, after-hours coverage gaps. Then we expanded into the full operational layer: booking validation, department coordination, workforce visibility, and executive intelligence.</p>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-date">The Beginning</span>
+          <h4>Voice Intelligence</h4>
+          <p>Started with AI voice handling for hotel room service. Solved the first pain point: unanswered calls and lost revenue during peak hours and after-hours.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">Product-Market Fit</span>
+          <h4>RoomService AI</h4>
+          <p>Launched as a standalone product for 4- and 5-star hotels. Proved the model: AI handling guest communications with POS integration and real-time order flow.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">The Expansion</span>
+          <h4>Operational Intelligence</h4>
+          <p>Working directly with properties like The Headland Hotel revealed the bigger opportunity: the entire operational layer above the PMS was missing.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">Today</span>
+          <h4>Lodgient Platform</h4>
+          <p>Five interconnected modules — Voice Intelligence, Operational Command, Revenue Protection, Workforce Coordination, and Executive Intelligence — governed by a single platform.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">What We Believe</div>
+  <h2 class="stitle">Principles, not just products.</h2>
+  <div class="values-grid">
+    <div class="val-card"><div class="val-num">01</div><h4>Hotels deserve better infrastructure</h4><p>The hospitality industry has been underserved by technology that stores data but doesn't drive execution. We build the operational layer that was always missing.</p></div>
+    <div class="val-card"><div class="val-num">02</div><h4>Don't replace — enhance</h4><p>Hotels have invested millions in their existing systems. We don't ask them to rip and replace. We sit on top and make everything work together.</p></div>
+    <div class="val-card"><div class="val-num">03</div><h4>Staff first, not just guest first</h4><p>Better tools for staff create better experiences for guests. Reducing operational friction means teams can focus on what they do best: hospitality.</p></div>
+    <div class="val-card"><div class="val-num">04</div><h4>Modular by conviction</h4><p>Every hotel is different. We don't force a one-size-fits-all platform. Start where the pain is. Expand when you're ready.</p></div>
+    <div class="val-card"><div class="val-num">05</div><h4>Revenue is an operational outcome</h4><p>Revenue doesn't just come from pricing strategy. It comes from capturing every order, validating every booking, and answering every call.</p></div>
+    <div class="val-card"><div class="val-num">06</div><h4>Built for institutions, not startups</h4><p>Our platform is designed for enterprise hospitality environments where governance, security, and accountability are non-negotiable.</p></div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Global Presence</div>
+  <h2 class="stitle">Where we operate.</h2>
+  <div class="locations">
+    <div class="loc"><div class="flag">🇮🇪</div><h4>Ireland</h4><p>Global Headquarters<br>Lodgient IP Ltd</p></div>
+    <div class="loc"><div class="flag">🇬🇧</div><h4>United Kingdom</h4><p>Operations & Partnerships</p></div>
+    <div class="loc"><div class="flag">🇺🇸</div><h4>United States</h4><p>Commercial Operations<br>Lodgient Inc (Delaware)</p></div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta-s" style="text-align:center;padding:var(--pad) 0">
+<div class="container">
+  <h2 class="stitle center">Ready to see Lodgient in action?</h2>
+  <p class="sbody center" style="margin-bottom:32px">Book a private demonstration and see how operational intelligence transforms your property.</p>
+  <a href="/contact" class="btn btn-p">Request a Demonstration</a>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a><p>Operational intelligence for modern hospitality.</p><p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient</p></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="/roomservice-ai">RoomService AI</a></li><li><a href="/platform">Platform</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Ireland (HQ) · UK · USA</span><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</div></footer>
+
+<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+</body>
+</html>

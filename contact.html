@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Demo — Lodgient</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px;align-items:start}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:600;letter-spacing:0.3px;color:var(--txt2);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;background:var(--bg-card);border:1px solid var(--border);color:var(--txt);font-family:var(--sans);font-size:14px;outline:none;transition:border-color .2s;border-radius:2px}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%239BA3B5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-group select option{background:var(--bg-card);color:var(--txt)}
+.contact-info{padding:48px;background:var(--bg-card);border:1px solid var(--border)}
+.ci-item{margin-bottom:32px}
+.ci-item h4{font-family:var(--serif);font-size:16px;font-weight:500;margin-bottom:6px}
+.ci-item p{font-size:14px;color:var(--txt2);line-height:1.6}
+.ci-item a{color:var(--gold)}
+.or-divider{display:flex;align-items:center;gap:16px;margin:32px 0;font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:1px}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.calendly-note{padding:24px;background:var(--gold-dim);border:1px solid var(--gold-b);text-align:center}
+.calendly-note p{font-size:14px;color:var(--txt2);margin-bottom:12px}
+.offices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+.office{padding:20px;background:var(--bg);border:1px solid var(--border);text-align:center}
+.office .flag{font-size:24px;margin-bottom:8px}
+.office h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.office p{font-size:12px;color:var(--txt3)}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.offices{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta active">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">☰</button>
+</div></nav>
+
+<section class="page-hero">
+<div class="container">
+  <div class="eyebrow">Get in Touch</div>
+  <h1>Ready to see Lodgient <em>in action?</em></h1>
+  <p>Book a private demonstration and see how operational intelligence transforms your property — from the first answered call to full portfolio visibility.</p>
+</div>
+</section>
+
+<section class="spad">
+<div class="container">
+  <div class="contact-grid">
+    <div>
+      <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:8px">Request a Demonstration</h3>
+      <p style="font-size:14px;color:var(--txt2);margin-bottom:32px">Fill in the form below and a member of our team will be in touch within 24 hours.</p>
+
+      <form action="#" method="POST">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div class="form-group"><label>First Name *</label><input type="text" name="first_name" required placeholder="John"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" name="email" required placeholder="john@hotel.com"></div>
+        <div class="form-group"><label>Hotel / Property Name *</label><input type="text" name="property" required placeholder="The Grand Hotel"></div>
+        <div class="form-group"><label>Your Role</label><input type="text" name="role" placeholder="General Manager"></div>
+        <div class="form-group">
+          <label>Number of Properties</label>
+          <select name="properties">
+            <option value="">Select...</option>
+            <option value="1">1 property</option>
+            <option value="2-5">2–5 properties</option>
+            <option value="6-20">6–20 properties</option>
+            <option value="20+">20+ properties</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What are you most interested in?</label>
+          <select name="interest">
+            <option value="">Select...</option>
+            <option value="rsai">RoomService AI (Voice & Chat)</option>
+            <option value="core">Lodgient Core (Operations + Revenue)</option>
+            <option value="enterprise">Lodgient Enterprise (Full Platform)</option>
+            <option value="not-sure">Not sure yet — want to learn more</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Anything else we should know?</label><textarea name="message" placeholder="Tell us about your property, challenges, or what you're looking to solve..."></textarea></div>
+        <button type="submit" class="btn btn-p" style="width:100%;justify-content:center;margin-top:8px">Request a Demonstration</button>
+      </form>
+
+      <div class="or-divider">or book directly</div>
+
+      <div class="calendly-note">
+        <p>Prefer to book a time slot directly? Schedule a 30-minute private demonstration with our team.</p>
+        <a href="https://calendly.com/theresa-roomserviceai/30min" target="_blank" class="btn btn-o" style="justify-content:center">Open Calendar →</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-info">
+        <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:24px">What to expect</h3>
+
+        <div class="ci-item">
+          <h4>1. Discovery Call (30 min)</h4>
+          <p>We'll learn about your property, current systems, and the operational challenges you're facing. No sales pitch — just understanding.</p>
+        </div>
+        <div class="ci-item">
+          <h4>2. Platform Walkthrough</h4>
+          <p>A tailored demonstration of Lodgient modules relevant to your property. See real workflows, real scenarios, real dashboards.</p>
+        </div>
+        <div class="ci-item">
+          <h4>3. Implementation Plan</h4>
+          <p>If it's a fit, we'll map out a phased deployment plan — typically live within 30 days with zero disruption to guest experience.</p>
+        </div>
+
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
+          <h4 style="font-family:var(--serif);font-size:16px;margin-bottom:12px">Contact directly</h4>
+          <p style="font-size:14px;color:var(--txt2);margin-bottom:8px">Email: <a href="mailto:hello@lodgient.com" style="color:var(--gold)">hello@lodgient.com</a></p>
+        </div>
+
+        <div class="offices">
+          <div class="office"><div class="flag">🇮🇪</div><h4>Ireland</h4><p>HQ</p></div>
+          <div class="office"><div class="flag">🇬🇧</div><h4>UK</h4><p>Operations</p></div>
+          <div class="office"><div class="flag">🇺🇸</div><h4>USA</h4><p>Commercial</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a><p>Operational intelligence for modern hospitality.</p><p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient</p></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="/roomservice-ai">RoomService AI</a></li><li><a href="/platform">Platform</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Ireland (HQ) · UK · USA</span><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</div></footer>
+<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+</body>
+</html>

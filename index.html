@@ -4,300 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lodgient — Operational Intelligence for Hotels</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="description" content="Lodgient is the operational intelligence layer that sits above your PMS. Connect departments, enforce standards, protect revenue.">
+<link rel="stylesheet" href="styles.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg-primary:#0B0F1A;
-  --bg-secondary:#111827;
-  --bg-card:#161D2F;
-  --bg-card-hover:#1C2540;
-  --text-primary:#F4F0EB;
-  --text-secondary:#9BA3B5;
-  --text-muted:#6B7280;
-  --accent:#C8A255;
-  --accent-light:#D4B876;
-  --accent-dim:rgba(200,162,85,0.12);
-  --accent-border:rgba(200,162,85,0.25);
-  --border:#1F2937;
-  --border-light:#2A3450;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'DM Sans',-apple-system,sans-serif;
-  --max-w:1200px;
-  --section-pad:clamp(80px,12vw,140px);
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--sans);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-
-/* Utility */
-.container{max-width:var(--max-w);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.eyebrow{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px}
-.eyebrow::before{content:'';width:32px;height:1px;background:var(--accent)}
-.section-title{font-family:var(--serif);font-size:clamp(28px,4.5vw,52px);font-weight:500;line-height:1.15;color:var(--text-primary);margin-bottom:24px;max-width:800px}
-.section-body{font-size:17px;line-height:1.7;color:var(--text-secondary);max-width:640px}
-.section-pad{padding:var(--section-pad) 0}
-
-/* Button */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.5px;border:none;cursor:pointer;transition:all .3s ease;border-radius:2px}
-.btn-primary{background:var(--accent);color:var(--bg-primary)}
-.btn-primary:hover{background:var(--accent-light);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--text-primary);border:1px solid var(--border-light)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-.btn-sm{padding:10px 24px;font-size:13px}
-
-/* Grain overlay */
-body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity:.4}
-
-/* ====== NAV ====== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .4s ease}
-.nav.scrolled{background:rgba(11,15,26,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-w);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo svg{height:28px}
-.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
-.nav-links a{font-size:13px;font-weight:500;letter-spacing:0.3px;color:var(--text-secondary);transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
-.nav-cta{margin-left:12px}
-.mobile-toggle{display:none;background:none;border:none;color:var(--text-primary);font-size:24px;cursor:pointer}
-
-/* ====== HERO ====== */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,85,0.06) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-light),transparent)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
 .hero-content{position:relative;z-index:1;padding-top:120px;padding-bottom:80px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--accent);margin-bottom:32px}
-.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--gold);margin-bottom:32px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,64px);font-weight:500;line-height:1.1;margin-bottom:28px;max-width:720px}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:18px;line-height:1.7;color:var(--text-secondary);max-width:560px;margin-bottom:44px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:18px;line-height:1.7;color:var(--txt2);max-width:560px;margin-bottom:44px}
 .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
 .hero-stats{display:flex;gap:48px;margin-top:72px;padding-top:40px;border-top:1px solid var(--border)}
-.hero-stat{display:flex;flex-direction:column;gap:4px}
-.hero-stat-value{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--text-primary)}
-.hero-stat-label{font-size:12px;color:var(--text-muted);letter-spacing:0.5px;text-transform:uppercase}
-
-/* ====== PRODUCTS ====== */
+.stat-val{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--txt)}
+.stat-lab{font-size:12px;color:var(--txt3);letter-spacing:0.5px;text-transform:uppercase}
 .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
-.product-card{background:var(--bg-card);border:1px solid var(--border);padding:48px;position:relative;overflow:hidden;transition:all .4s ease}
-.product-card:hover{border-color:var(--accent-border);background:var(--bg-card-hover);transform:translateY(-2px)}
-.product-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:48px;border-color:var(--accent-border)}
-.product-icon{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:22px}
-.product-icon.voice{background:linear-gradient(135deg,rgba(200,162,85,0.2),rgba(200,162,85,0.05));color:var(--accent)}
-.product-icon.ops{background:linear-gradient(135deg,rgba(99,179,237,0.2),rgba(99,179,237,0.05));color:#63B3ED}
-.product-icon.rev{background:linear-gradient(135deg,rgba(104,211,145,0.2),rgba(104,211,145,0.05));color:#68D391}
-.product-icon.exec{background:linear-gradient(135deg,rgba(183,148,244,0.2),rgba(183,148,244,0.05));color:#B794F4}
-.product-card h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:12px}
-.product-card .tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
-.product-card p{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px}
-.product-features{list-style:none;display:flex;flex-direction:column;gap:10px}
-.product-features li{font-size:14px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:10px}
-.product-features li::before{content:'→';color:var(--accent);font-weight:600;flex-shrink:0;margin-top:1px}
-.product-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);letter-spacing:0.3px;margin-top:24px;transition:gap .2s}
-.product-link:hover{gap:10px}
-
-/* ====== PROBLEM ====== */
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
-.problem-scenarios{display:flex;flex-direction:column;gap:20px}
-.scenario{padding:24px 28px;background:var(--bg-card);border-left:2px solid var(--accent-border);transition:all .3s ease}
-.scenario:hover{border-left-color:var(--accent);background:var(--bg-card-hover)}
-.scenario p{font-size:15px;color:var(--text-secondary);line-height:1.65}
-.scenario .arrow{color:var(--accent);font-weight:600;margin-right:4px}
-.problem-right h3{font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px;line-height:1.3}
-.problem-right p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
-.problem-right .highlight{font-weight:600;color:var(--text-primary)}
-
-/* ====== PILLARS ====== */
-.pillars{counter-reset:pillar}
-.pillar{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:56px 0;border-bottom:1px solid var(--border);counter-increment:pillar}
+.pcard{background:var(--bg-card);border:1px solid var(--border);padding:48px;position:relative;overflow:hidden;transition:all .4s ease}
+.pcard:hover{border-color:var(--gold-b);background:var(--bg-card-h);transform:translateY(-2px)}
+.pcard.feat{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:48px;border-color:var(--gold-b)}
+.picon{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:22px}
+.pcard h3{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:12px}
+.pcard .tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.pcard p{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:20px}
+.plink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gold);letter-spacing:0.3px;margin-top:24px;transition:gap .2s}
+.plink:hover{gap:10px}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
+.scenario{padding:24px 28px;background:var(--bg-card);border-left:2px solid var(--gold-b);transition:all .3s;margin-bottom:16px}
+.scenario:hover{border-left-color:var(--gold);background:var(--bg-card-h)}
+.scenario .arr{color:var(--gold);font-weight:600;margin-right:4px}
+.prob-r h3{font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px;line-height:1.3}
+.prob-r p{font-size:16px;color:var(--txt2);line-height:1.7;margin-bottom:16px}
+.prob-r .hl{font-weight:600;color:var(--txt)}
+.pillar{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:56px 0;border-bottom:1px solid var(--border)}
 .pillar:last-child{border-bottom:none}
-.pillar-num{font-family:var(--serif);font-size:72px;font-weight:400;color:var(--accent-dim);line-height:1}
-.pillar-num span{display:block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-top:12px}
-.pillar-content h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:8px}
-.pillar-content .subtitle{font-size:14px;color:var(--accent);font-weight:500;margin-bottom:20px;display:block}
-.pillar-content p{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px;max-width:600px}
-.pillar-scenario{padding:20px 24px;background:var(--accent-dim);border-left:2px solid var(--accent);margin-top:24px;max-width:600px}
-.pillar-scenario p{font-size:14px;font-style:italic;color:var(--accent-light);margin-bottom:0;max-width:100%}
-.pillar-features{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none;margin-bottom:20px}
-.pillar-features li{font-size:14px;color:var(--text-secondary);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
-.pillar-features li::before{content:'—';color:var(--accent);flex-shrink:0}
-
-/* ====== LEGACY ====== */
-.legacy-arrows{display:flex;flex-direction:column;gap:12px;margin:32px 0}
-.legacy-arrows .item{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:var(--text-secondary)}
-.legacy-arrows .item .arr{color:var(--accent);font-weight:600;flex-shrink:0;font-size:18px}
-.legacy-callout{margin-top:40px;padding:32px 40px;background:var(--accent-dim);border:1px solid var(--accent-border)}
-.legacy-callout p{font-size:17px;color:var(--text-primary);line-height:1.7}
-.legacy-callout strong{color:var(--accent)}
-
-/* ====== MODULES ====== */
-.module-table{width:100%;margin-top:48px;border-collapse:collapse}
-.module-table th{text-align:left;padding:16px 20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:var(--bg-card);border-bottom:2px solid var(--accent-border)}
-.module-table td{padding:20px;font-size:14px;color:var(--text-secondary);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
-.module-table tr:hover td{background:var(--bg-card);color:var(--text-primary)}
-.module-table td:first-child{font-weight:600;color:var(--text-primary);white-space:nowrap}
-
-/* ====== IMPLEMENTATION ====== */
-.impl-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.phase{padding:36px;background:var(--bg-card);border:1px solid var(--border);position:relative}
-.phase-num{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--accent-dim);margin-bottom:16px}
+.pnum{font-family:var(--serif);font-size:72px;font-weight:400;color:var(--gold-dim);line-height:1}
+.pnum span{display:block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-top:12px}
+.pcont h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:8px}
+.pcont .sub{font-size:14px;color:var(--gold);font-weight:500;margin-bottom:20px;display:block}
+.pcont p{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:20px;max-width:600px}
+.pfeat{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none;margin-bottom:20px}
+.pfeat li{font-size:14px;color:var(--txt2);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.pfeat li::before{content:'—';color:var(--gold);flex-shrink:0}
+.rsai-box{padding:48px;background:linear-gradient(135deg,rgba(200,162,85,0.08),rgba(200,162,85,0.02));border:1px solid var(--gold-b);margin-top:32px}
+.rsai-box h4{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:8px;color:var(--gold)}
+.rsai-box p{font-size:15px;color:var(--txt2);line-height:1.7;max-width:600px}
+.legacy-item{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:var(--txt2);margin-bottom:12px}
+.legacy-item .la{color:var(--gold);font-weight:600;flex-shrink:0;font-size:18px}
+.callout{margin-top:40px;padding:32px 40px;background:var(--gold-dim);border:1px solid var(--gold-b)}
+.callout p{font-size:17px;color:var(--txt);line-height:1.7}
+.callout strong{color:var(--gold)}
+.mod-table{width:100%;margin-top:48px;border-collapse:collapse}
+.mod-table th{text-align:left;padding:16px 20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:var(--bg-card);border-bottom:2px solid var(--gold-b)}
+.mod-table td{padding:20px;font-size:14px;color:var(--txt2);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.mod-table tr:hover td{background:var(--bg-card);color:var(--txt)}
+.mod-table td:first-child{font-weight:600;color:var(--txt);white-space:nowrap}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.phase{padding:36px;background:var(--bg-card);border:1px solid var(--border)}
+.phase-n{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--gold-dim);margin-bottom:16px}
 .phase h4{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:4px}
-.phase .timeline{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:0.5px;margin-bottom:12px;display:block}
-.phase p{font-size:14px;color:var(--text-secondary);line-height:1.6}
-
-/* ====== CTA ====== */
-.cta-section{text-align:center;padding:var(--section-pad) 0;position:relative}
-.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent-border),transparent)}
-.cta-section .section-title{margin:0 auto 20px;max-width:700px}
-.cta-section .section-body{margin:0 auto 40px}
-
-/* ====== TRUST ====== */
-.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:80px;padding-top:48px;border-top:1px solid var(--border)}
-.trust-item{text-align:center;padding:24px}
-.trust-icon{font-size:24px;margin-bottom:12px;color:var(--accent)}
-.trust-item h4{font-size:13px;font-weight:600;letter-spacing:0.3px;margin-bottom:4px}
-.trust-item p{font-size:12px;color:var(--text-muted)}
-
-/* ====== FOOTER ====== */
-.footer{padding:64px 0 40px;border-top:1px solid var(--border)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
-.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7;margin-top:16px;max-width:280px}
-.footer-col h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col ul a{font-size:14px;color:var(--text-secondary);transition:color .2s}
-.footer-col ul a:hover{color:var(--accent)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted)}
-.footer-bottom a{color:var(--text-secondary)}
-.footer-bottom a:hover{color:var(--accent)}
-.footer-legal{display:flex;gap:24px}
-
-/* ====== DIVIDER ====== */
-.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-light),transparent);margin:0}
-
-/* ====== RSAI CALLOUT ====== */
-.rsai-callout{padding:48px;background:linear-gradient(135deg,rgba(200,162,85,0.08),rgba(200,162,85,0.02));border:1px solid var(--accent-border);margin-top:32px}
-.rsai-callout h4{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:8px;color:var(--accent)}
-.rsai-callout p{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:600px}
-
-/* ====== RESPONSIVE ====== */
+.phase .tl{font-size:12px;color:var(--gold);font-weight:600;letter-spacing:0.5px;margin-bottom:12px;display:block}
+.phase p{font-size:14px;color:var(--txt2);line-height:1.6}
+.cta-s{text-align:center;padding:var(--pad) 0;position:relative}
+.cta-s::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-b),transparent)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.sec-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.sec-list li{font-size:14px;color:var(--txt2);display:flex;gap:10px}
+.sec-list li span{color:var(--gold);flex-shrink:0}
 @media(max-width:900px){
-  .nav-links{display:none}
-  .mobile-toggle{display:block}
-  .products-grid{grid-template-columns:1fr}
-  .product-card.featured{grid-template-columns:1fr}
-  .problem-grid{grid-template-columns:1fr}
+  .products-grid,.prob-grid,.two-col{grid-template-columns:1fr}
+  .pcard.feat{grid-template-columns:1fr}
   .pillar{grid-template-columns:1fr;gap:16px}
-  .pillar-num{font-size:48px}
-  .pillar-features{grid-template-columns:1fr}
-  .impl-phases{grid-template-columns:1fr}
-  .module-table{font-size:13px}
-  .module-table td,.module-table th{padding:12px}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .trust-bar{grid-template-columns:1fr 1fr}
+  .pfeat{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
   .hero-stats{flex-wrap:wrap;gap:32px}
-  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
-  .footer-legal{justify-content:center}
 }
-@media(max-width:600px){
-  .footer-grid{grid-template-columns:1fr}
-  .trust-bar{grid-template-columns:1fr}
-}
-
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp .7s ease forwards;opacity:0}
-.fade-up:nth-child(2){animation-delay:.1s}
-.fade-up:nth-child(3){animation-delay:.2s}
-.fade-up:nth-child(4){animation-delay:.3s}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <svg viewBox="0 0 160 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Lodgient logo mark -->
-        <rect x="0" y="4" width="20" height="20" rx="2" fill="none" stroke="#C8A255" stroke-width="1.5"/>
-        <rect x="4" y="8" width="5" height="5" rx="1" fill="#C8A255" opacity="0.9"/>
-        <rect x="11" y="8" width="5" height="5" rx="1" fill="#C8A255" opacity="0.5"/>
-        <rect x="4" y="15" width="5" height="5" rx="1" fill="#C8A255" opacity="0.3"/>
-        <rect x="11" y="15" width="5" height="5" rx="1" fill="#C8A255" opacity="0.7"/>
-        <!-- Lodgient wordmark -->
-        <text x="28" y="20" font-family="'Playfair Display',Georgia,serif" font-size="19" font-weight="500" fill="#F4F0EB" letter-spacing="0.5">Lodgient</text>
-      </svg>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#products">Products</a></li>
-      <li><a href="#platform">Platform</a></li>
-      <li><a href="#pillars">How It Works</a></li>
-      <li><a href="#deploy">Deployment</a></li>
-      <li><a href="#" class="btn btn-primary btn-sm nav-cta">Book a Demo</a></li>
-    </ul>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">☰</button>
-  </div>
+<div class="nav-inner">
+  <a href="/" class="nav-logo">
+    <div class="logo-mark"><span></span><span></span><span></span><span></span></div>
+    Lodgient
+  </a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" onclick="this.nextElementSibling.classList.toggle('show')" aria-label="Menu">☰</button>
+  <ul class="nav-links" style="display:none" id="mobile-menu">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact">Book a Demo</a></li>
+  </ul>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container hero-content">
-    <div class="hero-badge fade-up"><span class="dot"></span> Operational Intelligence for Hotels</div>
-    <h1 class="fade-up">Your PMS stores data.<br>Nothing makes sure the work <em>actually gets done.</em></h1>
-    <p class="hero-sub fade-up">Lodgient is the operational intelligence layer that sits above your PMS. It connects your departments, enforces your standards, and ensures that what should happen, happens — every shift, every day, across every property.</p>
-    <div class="hero-buttons fade-up">
-      <a href="#" class="btn btn-primary">Request a Private Demonstration</a>
-      <a href="#platform" class="btn btn-outline">See How It Works ↓</a>
-    </div>
-    <div class="hero-stats fade-up">
-      <div class="hero-stat">
-        <span class="hero-stat-value">30 days</span>
-        <span class="hero-stat-label">Time to Deploy</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-value">5 Pillars</span>
-        <span class="hero-stat-label">Operational Coverage</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-value">24/7</span>
-        <span class="hero-stat-label">Communication Intelligence</span>
-      </div>
-    </div>
+<div class="container hero-content">
+  <div class="hero-badge fade-up"><span class="dot"></span> Operational Intelligence for Hotels</div>
+  <h1 class="fade-up">Your PMS stores data.<br>Nothing makes sure the work <em>actually gets done.</em></h1>
+  <p class="hero-sub fade-up">Lodgient is the operational intelligence layer that sits above your PMS. It connects your departments, enforces your standards, and ensures that what should happen, happens — every shift, every day, across every property.</p>
+  <div class="hero-buttons fade-up">
+    <a href="/contact" class="btn btn-p">Request a Private Demonstration</a>
+    <a href="/platform" class="btn btn-o">See How It Works ↓</a>
   </div>
+  <div class="hero-stats fade-up">
+    <div><span class="stat-val">30 days</span><br><span class="stat-lab">Time to Deploy</span></div>
+    <div><span class="stat-val">5 Pillars</span><br><span class="stat-lab">Operational Coverage</span></div>
+    <div><span class="stat-val">24/7</span><br><span class="stat-lab">Communication Intelligence</span></div>
+  </div>
+</div>
 </section>
 
 <!-- PRODUCTS -->
-<section class="section-pad" id="products">
-  <div class="container">
-    <div class="eyebrow">Our Products</div>
-    <h2 class="section-title">The intelligence layer your hotel is missing.</h2>
-    <p class="section-body">Lodgient doesn't replace your PMS, your POS, or your phone system. It connects them — and governs the workflows between them. Your PMS is your system of record. Lodgient is your system of action.</p>
+<section class="spad" id="products">
+<div class="container">
+  <div class="eyebrow">Our Products</div>
+  <h2 class="stitle">The intelligence layer your hotel is missing.</h2>
+  <p class="sbody">Lodgient doesn't replace your PMS, your POS, or your phone system. It connects them — and governs the workflows between them. Your PMS is your system of record. Lodgient is your system of action.</p>
 
-    <div class="products-grid">
-      <div class="product-card featured">
-        <div>
-          <div class="product-icon voice">🎙</div>
-          <span class="tag">Flagship Product</span>
-          <h3>RoomService AI</h3>
-          <p>Enterprise-grade AI voice system trained for hotel operations. Every call answered, every order confirmed, every request routed — without increasing headcount. The fastest path into the Lodgient platform.</p>
-          <ul class="product-features">
-            <li>AI voice ordering via in-room phones</li>
-            <li>Built-in upsells on every order</li>
-            <li>POS & kitchen integration (Simphony, Silverware, Maestro)</li>
-            <li>After-hours, overflow, or full-time deployment</li>
-            <li>SMS order confirmation with delivery ETA</li>
-          </ul>
-          <a href="https://www.roomserviceai.com" class="product-link">Explore RoomService AI →</a>
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center">
-          <div style="background:var(--bg-primary);border:1px solid var(--border);padding:32px;font-family:var(--sans)">
-            <div style="font-size:11px;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px">Live Order Flow</div>
-            <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;font-family:monospace">POST /api/v1/checks/fire</div>
-            <pre style="font-size:12px;color:var(--text-secondary);line-height:1.8;font-family:monospace;margin:0;overflow-x:auto">{
+  <div class="products-grid">
+    <div class="pcard feat">
+      <div>
+        <div class="picon" style="background:linear-gradient(135deg,rgba(200,162,85,0.2),rgba(200,162,85,0.05));color:var(--gold)">🎙</div>
+        <span class="tag">Flagship Product</span>
+        <h3>RoomService AI</h3>
+        <p>Enterprise-grade AI voice system trained for hotel operations. Every call answered, every order confirmed, every request routed — without increasing headcount.</p>
+        <ul class="feat-list">
+          <li>AI voice ordering via in-room phones</li>
+          <li>Built-in upsells on every order</li>
+          <li>POS & kitchen integration (Simphony, Silverware, Maestro)</li>
+          <li>After-hours, overflow, or full-time deployment</li>
+          <li>SMS order confirmation with delivery ETA</li>
+        </ul>
+        <a href="/roomservice-ai" class="plink">Explore RoomService AI →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center">
+        <div style="background:var(--bg);border:1px solid var(--border);padding:32px">
+          <div style="font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px">Live Order Flow</div>
+          <div style="font-size:13px;color:var(--txt3);margin-bottom:8px;font-family:monospace">POST /api/v1/checks/fire</div>
+          <pre style="font-size:12px;color:var(--txt2);line-height:1.8;font-family:monospace;margin:0;overflow-x:auto">{
   "room": 412,
   "item": "Club Sandwich",
   "modifiers": ["No Mayo", "Add Bacon"],
@@ -305,459 +163,218 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointe
   "source": "voice_ai",
   "status": "confirmed"
 }</pre>
-            <div style="margin-top:16px;font-size:12px;color:var(--accent);display:flex;align-items:center;gap:6px">
-              <span style="width:6px;height:6px;border-radius:50%;background:#68D391;display:inline-block"></span>
-              AI → POS in real-time
-            </div>
+          <div style="margin-top:16px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:6px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#68D391;display:inline-block"></span> AI → POS in real-time
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="product-card">
-        <div class="product-icon ops">⚡</div>
-        <span class="tag">Operations</span>
-        <h3>Operational Command</h3>
-        <p>A single operational inbox where every guest request, task, and department action is visible. Requests routed instantly, tasks tracked to completion, escalations triggered automatically.</p>
-        <a href="#pillars" class="product-link">Learn more →</a>
-      </div>
+    <div class="pcard">
+      <div class="picon" style="background:linear-gradient(135deg,rgba(99,179,237,0.2),rgba(99,179,237,0.05));color:#63B3ED">⚡</div>
+      <span class="tag">Operations</span>
+      <h3>Operational Command</h3>
+      <p>A single operational inbox where every guest request, task, and department action is visible. Requests routed instantly, tasks tracked to completion.</p>
+      <a href="/platform" class="plink">Learn more →</a>
+    </div>
 
-      <div class="product-card">
-        <div class="product-icon rev">◈</div>
-        <span class="tag">Revenue</span>
-        <h3>Revenue Protection</h3>
-        <p>Catches booking errors, missed deposits, and rate discrepancies before they become losses. Validates every booking against your policies — 48 hours before arrival.</p>
-        <a href="#pillars" class="product-link">Learn more →</a>
-      </div>
+    <div class="pcard">
+      <div class="picon" style="background:linear-gradient(135deg,rgba(104,211,145,0.2),rgba(104,211,145,0.05));color:#68D391">◈</div>
+      <span class="tag">Revenue</span>
+      <h3>Revenue Protection</h3>
+      <p>Catches booking errors, missed deposits, and rate discrepancies before they become losses. Validates every booking against your policies.</p>
+      <a href="/platform" class="plink">Learn more →</a>
+    </div>
 
-      <div class="product-card">
-        <div class="product-icon" style="background:linear-gradient(135deg,rgba(252,129,74,0.2),rgba(252,129,74,0.05));color:#FC814A">⊞</div>
-        <span class="tag">Workforce</span>
-        <h3>Workforce Coordination</h3>
-        <p>Real-time visibility into room status, task assignments, and department workload. Front Desk knows the moment a room is ready. No radios. No WhatsApp. No guesswork.</p>
-        <a href="#pillars" class="product-link">Learn more →</a>
-      </div>
+    <div class="pcard">
+      <div class="picon" style="background:linear-gradient(135deg,rgba(252,129,74,0.2),rgba(252,129,74,0.05));color:#FC814A">⊞</div>
+      <span class="tag">Workforce</span>
+      <h3>Workforce Coordination</h3>
+      <p>Real-time visibility into room status, task assignments, and department workload. No radios. No WhatsApp. No guesswork.</p>
+      <a href="/platform" class="plink">Learn more →</a>
+    </div>
 
-      <div class="product-card">
-        <div class="product-icon exec">◎</div>
-        <span class="tag">Intelligence</span>
-        <h3>Executive Dashboards</h3>
-        <p>Cross-property visibility. SLA benchmarking. Trend tracking. The full operational picture in 60 seconds — without calling a single hotel.</p>
-        <a href="#pillars" class="product-link">Learn more →</a>
-      </div>
+    <div class="pcard">
+      <div class="picon" style="background:linear-gradient(135deg,rgba(183,148,244,0.2),rgba(183,148,244,0.05));color:#B794F4">◎</div>
+      <span class="tag">Intelligence</span>
+      <h3>Executive Dashboards</h3>
+      <p>Cross-property visibility. SLA benchmarking. Trend tracking. The full operational picture in 60 seconds.</p>
+      <a href="/platform" class="plink">Learn more →</a>
     </div>
   </div>
+</div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- PROBLEM -->
-<section class="section-pad" id="platform">
-  <div class="container">
-    <div class="eyebrow">The Reality</div>
-    <h2 class="section-title">Your hotel runs on systems that don't talk to each other.</h2>
-
-    <div class="problem-grid">
-      <div class="problem-scenarios">
-        <div class="scenario">
-          <p><span class="arrow">→</span> A booking arrives with no deposit captured. Nobody flags it until checkout — or never.</p>
-        </div>
-        <div class="scenario">
-          <p><span class="arrow">→</span> A guest calls at 11pm about a broken radiator. The message is scribbled on paper. By morning, it's lost.</p>
-        </div>
-        <div class="scenario">
-          <p><span class="arrow">→</span> Housekeeping finishes Room 214, but Front Desk doesn't know for another 20 minutes. The guest waits.</p>
-        </div>
-        <div class="scenario">
-          <p><span class="arrow">→</span> Your best upsell window — the guest calling about dining — goes to voicemail because the team is handling check-ins.</p>
-        </div>
-        <div class="scenario">
-          <p><span class="arrow">→</span> A VIP booking has dietary requirements in the PMS. The kitchen never sees them. The welcome dinner is wrong.</p>
-        </div>
-      </div>
-
-      <div class="problem-right">
-        <h3>These aren't edge cases. They happen every day.</h3>
-        <p>Your PMS holds reservations. Your POS processes orders. Your phone system takes calls. Your housekeeping team uses radios or WhatsApp. Your night manager leaves a handover note.</p>
-        <p>None of these systems are connected. None enforce follow-through. None tell you when something falls through the cracks.</p>
-        <p class="highlight">The issue isn't your people. It's the absence of an operational layer that connects them.</p>
-        <p>Lodgient is that layer.</p>
-      </div>
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">The Reality</div>
+  <h2 class="stitle">Your hotel runs on systems that don't talk to each other.</h2>
+  <div class="prob-grid">
+    <div>
+      <div class="scenario"><p><span class="arr">→</span> A booking arrives with no deposit captured. Nobody flags it until checkout — or never.</p></div>
+      <div class="scenario"><p><span class="arr">→</span> A guest calls at 11pm about a broken radiator. The message is scribbled on paper. By morning, it's lost.</p></div>
+      <div class="scenario"><p><span class="arr">→</span> Housekeeping finishes Room 214, but Front Desk doesn't know for another 20 minutes.</p></div>
+      <div class="scenario"><p><span class="arr">→</span> Your best upsell window goes to voicemail because the team is handling check-ins.</p></div>
+      <div class="scenario"><p><span class="arr">→</span> A VIP booking has dietary requirements in the PMS. The kitchen never sees them.</p></div>
+    </div>
+    <div class="prob-r">
+      <h3>These aren't edge cases. They happen every day.</h3>
+      <p>Your PMS holds reservations. Your POS processes orders. Your phone system takes calls. Your housekeeping team uses radios or WhatsApp. Your night manager leaves a handover note.</p>
+      <p>None of these systems are connected. None enforce follow-through.</p>
+      <p class="hl">The issue isn't your people. It's the absence of an operational layer that connects them.</p>
+      <p>Lodgient is that layer.</p>
+      <a href="/platform" class="btn btn-o" style="margin-top:16px">See How It Works →</a>
     </div>
   </div>
+</div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- PILLARS -->
-<section class="section-pad" id="pillars">
-  <div class="container">
-    <div class="eyebrow">How It Works</div>
-    <h2 class="section-title">Five operational layers. One connected property.</h2>
-
-    <div class="pillars">
-
-      <div class="pillar">
-        <div class="pillar-num">01<span>Command</span></div>
-        <div class="pillar-content">
-          <h3>Operational Command Centre</h3>
-          <span class="subtitle">What your team sees: A single operational inbox for every department.</span>
-          <ul class="pillar-features">
-            <li>Requests routed to the correct department instantly</li>
-            <li>Every task tracked to completion with timestamps</li>
-            <li>Shift handovers captured digitally</li>
-            <li>Escalation rules trigger automatically</li>
-            <li>Full audit trail for management</li>
-          </ul>
-          <div class="pillar-scenario">
-            <p>A guest requests extra towels and a late checkout. The towel request goes to Housekeeping. The late checkout goes to Front Desk. Both are tracked. If Housekeeping hasn't confirmed in 15 minutes, the Duty Manager is notified. The guest never calls twice.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">02<span>Revenue</span></div>
-        <div class="pillar-content">
-          <h3>Revenue Protection</h3>
-          <span class="subtitle">What your team sees: A validation layer that catches errors before they become losses.</span>
-          <ul class="pillar-features">
-            <li>Bookings checked against deposit policies automatically</li>
-            <li>Rate integrity and inclusion accuracy validated</li>
-            <li>Flagged exceptions surfaced before arrival</li>
-            <li>Missed call revenue recovered via Voice Intelligence</li>
-            <li>Structured reporting on revenue at risk</li>
-          </ul>
-          <div class="pillar-scenario">
-            <p>A group booking for 12 rooms: negotiated rate, breakfast included, deposit required. Lodgient validates each element. If the deposit is missing, it flags the booking to your revenue manager 48 hours before arrival — not at checkout.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">03<span>Voice</span></div>
-        <div class="pillar-content">
-          <h3>Communication Intelligence</h3>
-          <span class="subtitle">What your team sees: Every guest interaction captured, transcribed, and actioned.</span>
-          <ul class="pillar-features">
-            <li>AI voice handling — after-hours, overflow, or full-time</li>
-            <li>Every call transcribed, logged, and searchable</li>
-            <li>Service requests auto-created as tasks</li>
-            <li>Intelligent routing to the right department</li>
-            <li>No more scribbled messages or lost voicemails</li>
-          </ul>
-          <div class="rsai-callout">
-            <h4>Powered by RoomService AI</h4>
-            <p>Our AI voice engine is the fastest path into Lodgient. It handles room service ordering, guest requests, and call overflow — then feeds everything into the operational intelligence layer. Most properties start here and expand from there.</p>
-            <a href="https://www.roomserviceai.com" class="product-link" style="margin-top:16px">Explore RoomService AI →</a>
-          </div>
-          <div class="pillar-scenario" style="margin-top:20px">
-            <p>11:30pm, Room 412 calls about a heating issue. RoomService AI answers instantly, creates a maintenance ticket, alerts the on-call engineer. By 11:50pm, resolved. Next morning, the Duty Manager sees the full record without asking anyone.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">04<span>Workforce</span></div>
-        <div class="pillar-content">
-          <h3>Workforce Coordination</h3>
-          <span class="subtitle">What your team sees: Real-time room status and task visibility across departments.</span>
-          <ul class="pillar-features">
-            <li>Housekeeping task orchestration with live updates</li>
-            <li>Front Desk sees room readiness the moment it changes</li>
-            <li>Maintenance requests routed and time-stamped</li>
-            <li>Cross-department visibility from one screen</li>
-            <li>Bottleneck detection before guests feel it</li>
-          </ul>
-          <div class="pillar-scenario">
-            <p>2:45pm. Fourteen rooms still need turning before the 3pm check-in wave. Lodgient shows which rooms are in progress, complete, or not started. The Supervisor reallocates team members. Front Desk sees live ETAs and offers arriving guests a drink in the lounge.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <div class="pillar-num">05<span>Executive</span></div>
-        <div class="pillar-content">
-          <h3>Executive Intelligence</h3>
-          <span class="subtitle">What your team sees: Decision-ready insight across one property or fifty.</span>
-          <ul class="pillar-features">
-            <li>Response times, completion rates, escalation frequency</li>
-            <li>Revenue protection metrics and recovered revenue</li>
-            <li>Communication volume and resolution speed</li>
-            <li>Cross-property benchmarking</li>
-            <li>Week-over-week operational trend tracking</li>
-          </ul>
-          <div class="pillar-scenario">
-            <p>Monday morning. The GM opens her dashboard. Property A: 94% SLA — up from 87%. Property B: missed-call spike on Friday night — staffing gap identified. Property C: three deposit exceptions flagged and resolved before arrival. Full picture in 60 seconds.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- LEGACY TECH -->
-<section class="section-pad">
-  <div class="container">
-    <div class="eyebrow">Why Now</div>
-    <h2 class="section-title">Your hotel tech was built to store records. Not to run operations.</h2>
-    <p class="section-body">Most hotels operate on technology designed 10–20 years ago. Maestro, Silverware, Opera, and dozens of others were built as systems of record. They were never designed to:</p>
-
-    <div class="legacy-arrows">
-      <div class="item"><span class="arr">→</span> Coordinate work across departments in real time</div>
-      <div class="item"><span class="arr">→</span> Enforce that a task was completed, not just assigned</div>
-      <div class="item"><span class="arr">→</span> Capture and structure guest communications</div>
-      <div class="item"><span class="arr">→</span> Flag revenue leakage before it occurs</div>
-      <div class="item"><span class="arr">→</span> Give management operational visibility without making phone calls</div>
-    </div>
-
-    <div class="legacy-callout">
-      <p><strong>Lodgient doesn't ask you to replace these systems.</strong> It sits on top of them — integrating with your existing PMS and POS — and adds the operational intelligence layer they were never built to provide. We work with what you already have. You don't rip and replace. You upgrade how your hotel actually operates.</p>
-    </div>
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Why Now</div>
+  <h2 class="stitle">Your hotel tech was built to store records. Not to run operations.</h2>
+  <p class="sbody">Most hotels operate on technology designed 10–20 years ago. Maestro, Silverware, Opera, and dozens of others were built as systems of record. They were never designed to:</p>
+  <div style="margin:32px 0">
+    <div class="legacy-item"><span class="la">→</span> Coordinate work across departments in real time</div>
+    <div class="legacy-item"><span class="la">→</span> Enforce that a task was completed, not just assigned</div>
+    <div class="legacy-item"><span class="la">→</span> Capture and structure guest communications</div>
+    <div class="legacy-item"><span class="la">→</span> Flag revenue leakage before it occurs</div>
+    <div class="legacy-item"><span class="la">→</span> Give management operational visibility without making phone calls</div>
   </div>
+  <div class="callout">
+    <p><strong>Lodgient doesn't ask you to replace these systems.</strong> It sits on top of them — integrating with your existing PMS and POS — and adds the operational intelligence layer they were never built to provide.</p>
+  </div>
+</div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
-<!-- MODULES TABLE -->
-<section class="section-pad" id="deploy">
-  <div class="container">
-    <div class="eyebrow">Built to Fit Your Property</div>
-    <h2 class="section-title">Start where the pain is. Expand when you're ready.</h2>
-    <p class="section-body">Lodgient is modular by design. Every hotel has different pressure points. You choose where to start.</p>
-
-    <table class="module-table">
-      <thead>
-        <tr>
-          <th>Module</th>
-          <th>What It Solves</th>
-          <th>Ideal Starting Point</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>RoomService AI</td>
-          <td>Missed calls, after-hours coverage, order accuracy, upsell consistency</td>
-          <td>Hotels losing revenue from unanswered calls</td>
-        </tr>
-        <tr>
-          <td>Revenue Protection</td>
-          <td>Deposit gaps, rate errors, booking validation failures</td>
-          <td>Properties with manual booking review processes</td>
-        </tr>
-        <tr>
-          <td>Operational Command</td>
-          <td>Cross-department coordination, task tracking, escalation</td>
-          <td>Hotels where things fall through between shifts</td>
-        </tr>
-        <tr>
-          <td>Workforce Coordination</td>
-          <td>Housekeeping visibility, room readiness, maintenance routing</td>
-          <td>Properties where Front Desk and Housekeeping are disconnected</td>
-        </tr>
-        <tr>
-          <td>Executive Intelligence</td>
-          <td>Management dashboards, cross-property visibility, trend tracking</td>
-          <td>Multi-property groups needing standardised oversight</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<!-- MODULES -->
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Modular Deployment</div>
+  <h2 class="stitle">Start where the pain is. Expand when you're ready.</h2>
+  <table class="mod-table">
+    <thead><tr><th>Module</th><th>What It Solves</th><th>Ideal Starting Point</th></tr></thead>
+    <tbody>
+      <tr><td>RoomService AI</td><td>Missed calls, after-hours coverage, order accuracy</td><td>Hotels losing revenue from unanswered calls</td></tr>
+      <tr><td>Revenue Protection</td><td>Deposit gaps, rate errors, booking validation</td><td>Properties with manual booking review</td></tr>
+      <tr><td>Operational Command</td><td>Cross-department coordination, task tracking</td><td>Hotels where things fall between shifts</td></tr>
+      <tr><td>Workforce Coordination</td><td>Housekeeping visibility, room readiness</td><td>Front Desk & Housekeeping disconnected</td></tr>
+      <tr><td>Executive Intelligence</td><td>Management dashboards, cross-property visibility</td><td>Multi-property groups</td></tr>
+    </tbody>
+  </table>
+</div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- IMPLEMENTATION -->
-<section class="section-pad">
-  <div class="container">
-    <div class="eyebrow">Getting Started</div>
-    <h2 class="section-title">Live in 30 days. No disruption. No downtime.</h2>
-    <p class="section-body">Lodgient is deployed in three structured phases — each designed to deliver value immediately without disrupting daily operations.</p>
-
-    <div class="impl-phases">
-      <div class="phase">
-        <div class="phase-num">I</div>
-        <h4>Connect & Configure</h4>
-        <span class="timeline">Week 1–2</span>
-        <p>Integration with your existing PMS and POS. Core platform configured to your property's departments, roles, and workflows.</p>
-      </div>
-      <div class="phase">
-        <div class="phase-num">II</div>
-        <h4>Communication Intelligence</h4>
-        <span class="timeline">Week 2–3</span>
-        <p>Voice and chat modules activated. RoomService AI deployed for call handling. Guest communication flows into the operational layer.</p>
-      </div>
-      <div class="phase">
-        <div class="phase-num">III</div>
-        <h4>Full Operational Intelligence</h4>
-        <span class="timeline">Week 3–4</span>
-        <p>Workforce coordination, revenue protection, and executive dashboards activated. Full visibility live across the property.</p>
-      </div>
-    </div>
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Getting Started</div>
+  <h2 class="stitle">Live in 30 days. No disruption.</h2>
+  <div class="phases">
+    <div class="phase"><div class="phase-n">I</div><h4>Connect & Configure</h4><span class="tl">Week 1–2</span><p>Integration with your existing PMS and POS. Core platform configured to your property.</p></div>
+    <div class="phase"><div class="phase-n">II</div><h4>Communication Intelligence</h4><span class="tl">Week 2–3</span><p>Voice and chat modules activated. RoomService AI deployed for call handling.</p></div>
+    <div class="phase"><div class="phase-n">III</div><h4>Full Operational Intelligence</h4><span class="tl">Week 3–4</span><p>Workforce coordination, revenue protection, and executive dashboards activated.</p></div>
   </div>
+</div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- SCALE + SECURITY -->
-<section class="section-pad">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
-      <div>
-        <div class="eyebrow">Architected for Growth</div>
-        <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px">One property or one hundred.</h2>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px">Built on multi-tenant architecture for luxury independent hotels, resort properties, multi-property groups, and enterprise portfolios.</p>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7">Standardised operations across every property. Centralised visibility for leadership. Local autonomy for on-property teams.</p>
-      </div>
-      <div>
-        <div class="eyebrow">Enterprise-Grade Security</div>
-        <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px">Trust is non-negotiable.</h2>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> GDPR-aligned data handling & guest privacy controls</li>
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> Role-based access per department</li>
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> Full operational audit logs</li>
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> Secure API-based integrations</li>
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> Configurable escalation hierarchies</li>
-          <li style="font-size:14px;color:var(--text-secondary);display:flex;gap:10px"><span style="color:var(--accent)">—</span> Regional data residency options</li>
-        </ul>
-      </div>
+<section class="spad">
+<div class="container">
+  <div class="two-col">
+    <div>
+      <div class="eyebrow">Scale</div>
+      <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px">One property or one hundred.</h2>
+      <p style="font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:16px">Built on multi-tenant architecture for luxury independents, resorts, multi-property groups, and enterprise portfolios.</p>
+      <p style="font-size:15px;color:var(--txt2);line-height:1.7">Standardised operations across every property. Centralised visibility for leadership. Local autonomy for on-property teams.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Security</div>
+      <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:20px">Trust is non-negotiable.</h2>
+      <ul class="sec-list">
+        <li><span>—</span> GDPR-aligned data handling & guest privacy controls</li>
+        <li><span>—</span> Role-based access per department</li>
+        <li><span>—</span> Full operational audit logs</li>
+        <li><span>—</span> Secure API-based integrations</li>
+        <li><span>—</span> Configurable escalation hierarchies</li>
+        <li><span>—</span> Regional data residency options</li>
+      </ul>
     </div>
   </div>
+</div>
 </section>
 
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="eyebrow" style="justify-content:center">Get Started</div>
-    <h2 class="section-title" style="text-align:center">Your hotel has a technology stack.<br>It's time it had an <em style="font-family:var(--serif);font-style:italic;color:var(--accent)">operating system.</em></h2>
-    <p class="section-body" style="text-align:center">The gap between your PMS and your guest experience is where revenue leaks, standards slip, and teams lose visibility. Lodgient closes that gap — permanently.</p>
-    <a href="#" class="btn btn-primary">Request a Private Demonstration</a>
-
-    <div class="trust-bar">
-      <div class="trust-item">
-        <div class="trust-icon">🔒</div>
-        <h4>GDPR-Aligned</h4>
-        <p>Data Protection</p>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🛡</div>
-        <h4>Enterprise-Grade</h4>
-        <p>Security</p>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">◈</div>
-        <h4>Privacy-First</h4>
-        <p>Design</p>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🌍</div>
-        <h4>Built for Global</h4>
-        <p>Hospitality</p>
-      </div>
-    </div>
+<section class="cta-s">
+<div class="container">
+  <div class="eyebrow center">Get Started</div>
+  <h2 class="stitle center">Your hotel has a technology stack.<br>It's time it had an <em style="font-family:var(--serif);font-style:italic;color:var(--gold)">operating system.</em></h2>
+  <p class="sbody center" style="margin-bottom:40px">The gap between your PMS and your guest experience is where revenue leaks, standards slip, and teams lose visibility. Lodgient closes that gap.</p>
+  <a href="/contact" class="btn btn-p">Request a Private Demonstration</a>
+  <div class="trust-bar" style="margin-top:80px">
+    <div class="trust-item"><div class="ti">🔒</div><h4>GDPR-Aligned</h4><p>Data Protection</p></div>
+    <div class="trust-item"><div class="ti">🛡</div><h4>Enterprise-Grade</h4><p>Security</p></div>
+    <div class="trust-item"><div class="ti">◈</div><h4>Privacy-First</h4><p>Design</p></div>
+    <div class="trust-item"><div class="ti">🌍</div><h4>Built for Global</h4><p>Hospitality</p></div>
   </div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <svg viewBox="0 0 160 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:28px">
-          <rect x="0" y="4" width="20" height="20" rx="2" fill="none" stroke="#C8A255" stroke-width="1.5"/>
-          <rect x="4" y="8" width="5" height="5" rx="1" fill="#C8A255" opacity="0.9"/>
-          <rect x="11" y="8" width="5" height="5" rx="1" fill="#C8A255" opacity="0.5"/>
-          <rect x="4" y="15" width="5" height="5" rx="1" fill="#C8A255" opacity="0.3"/>
-          <rect x="11" y="15" width="5" height="5" rx="1" fill="#C8A255" opacity="0.7"/>
-          <text x="28" y="20" font-family="'Playfair Display',Georgia,serif" font-size="19" font-weight="500" fill="#F4F0EB" letter-spacing="0.5">Lodgient</text>
-        </svg>
-        <p>Operational intelligence for modern hospitality. Lodgient connects departments, enforces standards, and protects revenue across every property.</p>
-        <p style="margin-top:16px;font-size:11px;color:var(--text-muted)">© 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="https://www.roomserviceai.com">RoomService AI</a></li>
-          <li><a href="#">Revenue Protection</a></li>
-          <li><a href="#">Operational Command</a></li>
-          <li><a href="#">Workforce Coordination</a></li>
-          <li><a href="#">Executive Intelligence</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Platform</h4>
-        <ul>
-          <li><a href="#">Integration Partners</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">ROI Calculator</a></li>
-          <li><a href="#">Live Demo</a></li>
-          <li><a href="#">Security</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </div>
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom:0"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+      <p>Operational intelligence for modern hospitality. Connecting departments, enforcing standards, protecting revenue.</p>
+      <p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
     </div>
-
-    <div class="footer-bottom">
-      <span>Ireland (HQ) · UK · USA</span>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
+    <div class="footer-col"><h4>Products</h4><ul>
+      <li><a href="/roomservice-ai">RoomService AI</a></li>
+      <li><a href="/platform">Operational Command</a></li>
+      <li><a href="/platform">Revenue Protection</a></li>
+      <li><a href="/platform">Workforce Coordination</a></li>
+      <li><a href="/platform">Executive Intelligence</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Platform</h4><ul>
+      <li><a href="/platform">How It Works</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/contact">Live Demo</a></li>
+      <li><a href="#">Integrations</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="#">Login</a></li>
+    </ul></div>
   </div>
+  <div class="footer-bottom">
+    <span>Ireland (HQ) · UK · USA</span>
+    <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</div>
 </footer>
 
 <script>
-// Nav scroll effect
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// Intersection Observer for fade-in animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.pillar, .product-card, .scenario, .phase').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)'}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.pillar,.pcard,.scenario,.phase').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease,transform .6s ease';obs.observe(el)});
 </script>
-
 </body>
 </html>

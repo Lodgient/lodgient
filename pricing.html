@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Lodgient</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.price-card{padding:48px;background:var(--bg-card);border:1px solid var(--border);display:flex;flex-direction:column}
+.price-card.featured{border-color:var(--gold-b);position:relative}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:0;left:0;right:0;padding:8px;text-align:center;font-size:11px;font-weight:700;letter-spacing:1.5px;background:var(--gold);color:var(--bg)}
+.price-card.featured{padding-top:64px}
+.price-tier{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.price-name{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:8px}
+.price-desc{font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:24px}
+.price-tag{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--txt);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.price-tag span{font-size:13px;color:var(--txt3);font-family:var(--sans);font-weight:400}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex-grow:1}
+.price-features li{font-size:14px;color:var(--txt2);display:flex;gap:10px;align-items:flex-start}
+.price-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.faq{margin-top:64px}
+.faq-item{border-bottom:1px solid var(--border);padding:24px 0}
+.faq-q{font-family:var(--serif);font-size:18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:24px;color:var(--gold);transition:transform .3s}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding-top:16px;font-size:15px;color:var(--txt2);line-height:1.7;max-width:600px}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-item.open .faq-a{max-height:200px}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing" class="active">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">☰</button>
+</div></nav>
+
+<section class="page-hero">
+<div class="container">
+  <div class="eyebrow">Pricing</div>
+  <h1>Transparent pricing. <em>Modular by design.</em></h1>
+  <p>Start with the module that solves your biggest pain point. Add more as you see the operational lift. No forced bundles. No hidden fees.</p>
+</div>
+</section>
+
+<section class="spad">
+<div class="container">
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-tier">Start</div>
+      <div class="price-name">RoomService AI</div>
+      <div class="price-desc">AI voice & chat ordering for room service. The fastest path into operational intelligence.</div>
+      <div class="price-tag">Custom pricing <span>/ per property per month</span></div>
+      <ul class="price-features">
+        <li>24/7 AI voice ordering</li>
+        <li>Chat interface (QR code, mobile)</li>
+        <li>POS & kitchen integration</li>
+        <li>Intelligent upsells on every order</li>
+        <li>SMS order confirmation</li>
+        <li>Revenue & operations analytics</li>
+        <li>Human escalation & safety routing</li>
+      </ul>
+      <a href="/contact" class="btn btn-o" style="text-align:center;justify-content:center">Get a Quote</a>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-tier">Grow</div>
+      <div class="price-name">Lodgient Core</div>
+      <div class="price-desc">RoomService AI plus operational command, revenue protection, and workforce coordination.</div>
+      <div class="price-tag">Custom pricing <span>/ per property per month</span></div>
+      <ul class="price-features">
+        <li>Everything in RoomService AI</li>
+        <li>Operational Command Centre</li>
+        <li>Revenue Protection & booking validation</li>
+        <li>Workforce Coordination</li>
+        <li>Cross-department task routing</li>
+        <li>SLA enforcement & escalation</li>
+        <li>Property-level dashboards</li>
+        <li>Dedicated onboarding support</li>
+      </ul>
+      <a href="/contact" class="btn btn-p" style="text-align:center;justify-content:center">Get a Quote</a>
+    </div>
+
+    <div class="price-card">
+      <div class="price-tier">Scale</div>
+      <div class="price-name">Lodgient Enterprise</div>
+      <div class="price-desc">Full platform with executive intelligence, multi-property governance, and portfolio visibility.</div>
+      <div class="price-tag">Custom pricing <span>/ portfolio agreement</span></div>
+      <ul class="price-features">
+        <li>Everything in Lodgient Core</li>
+        <li>Executive Intelligence dashboards</li>
+        <li>Cross-property benchmarking</li>
+        <li>Portfolio-level compliance tracking</li>
+        <li>Multi-tenant architecture</li>
+        <li>Custom SLA frameworks</li>
+        <li>API access & custom integrations</li>
+        <li>Dedicated account management</li>
+        <li>Regional data residency options</li>
+      </ul>
+      <a href="/contact" class="btn btn-o" style="text-align:center;justify-content:center">Contact Sales</a>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="eyebrow" style="margin-top:32px">Common Questions</div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How long does implementation take?</div>
+      <div class="faq-a"><p>Typical implementation is 30 days, deployed in three phases: Connect & Configure (Week 1–2), Communication Intelligence (Week 2–3), and Full Operational Intelligence (Week 3–4). No disruption to guest experience during rollout.</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do I need to replace my existing PMS or POS?</div>
+      <div class="faq-a"><p>No. Lodgient sits on top of your existing systems — including Maestro, Opera, Silverware, Simphony, and others. We integrate via API. You don't rip and replace anything.</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Can I start with just RoomService AI?</div>
+      <div class="faq-a"><p>Absolutely. Most hotels start with RoomService AI and expand into additional modules as they see the operational lift. The platform is modular by design.</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Is there a minimum contract period?</div>
+      <div class="faq-a"><p>We offer flexible terms. Contact our team for specific details based on your property type and requirements.</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do you support multi-property deployments?</div>
+      <div class="faq-a"><p>Yes. Lodgient Enterprise is built specifically for multi-property groups with centralised governance, cross-property benchmarking, and portfolio-level visibility.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta-s" style="text-align:center;padding:var(--pad) 0">
+<div class="container">
+  <h2 class="stitle center">Not sure which plan fits?</h2>
+  <p class="sbody center" style="margin-bottom:32px">Book a call and we'll recommend the right starting point for your property.</p>
+  <a href="/contact" class="btn btn-p">Book a Demo</a>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a><p>Operational intelligence for modern hospitality.</p><p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient</p></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="/roomservice-ai">RoomService AI</a></li><li><a href="/platform">Platform</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Ireland (HQ) · UK · USA</span><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</div></footer>
+<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+</body>
+</html>

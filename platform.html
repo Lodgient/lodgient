@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform — Lodgient</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.pillar{display:grid;grid-template-columns:180px 1fr;gap:48px;padding:64px 0;border-bottom:1px solid var(--border)}
+.pillar:last-child{border-bottom:none}
+.pn{font-family:var(--serif);font-size:72px;font-weight:400;color:var(--gold-dim);line-height:1}
+.pn span{display:block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-top:12px}
+.pc h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:8px}
+.pc .sub{font-size:14px;color:var(--gold);font-weight:500;margin-bottom:20px;display:block}
+.pc p{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:20px;max-width:600px}
+.pf{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none;margin-bottom:24px}
+.pf li{font-size:14px;color:var(--txt2);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.pf li::before{content:'—';color:var(--gold);flex-shrink:0}
+.sc{padding:20px 24px;background:var(--gold-dim);border-left:2px solid var(--gold);max-width:600px}
+.sc p{font-size:14px;font-style:italic;color:var(--gold-l);line-height:1.7;margin:0}
+.rsai-cta{padding:40px;background:linear-gradient(135deg,rgba(200,162,85,0.08),rgba(200,162,85,0.02));border:1px solid var(--gold-b);margin-top:24px;max-width:600px}
+.rsai-cta h4{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--gold);margin-bottom:8px}
+.rsai-cta p{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:16px}
+@media(max-width:900px){.pillar{grid-template-columns:1fr;gap:16px}.pf{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai">RoomService AI</a></li>
+    <li><a href="/platform" class="active">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">☰</button>
+</div></nav>
+
+<section class="page-hero">
+<div class="container">
+  <div class="eyebrow">The Lodgient Platform</div>
+  <h1>Five operational layers. <em>One connected property.</em></h1>
+  <p>Each pillar addresses a specific operational gap in hotel management. Together, they form the intelligence layer your PMS was never designed to be.</p>
+</div>
+</section>
+
+<section class="spad">
+<div class="container">
+
+  <div class="pillar">
+    <div class="pn">01<span>Command</span></div>
+    <div class="pc">
+      <h3>Operational Command Centre</h3>
+      <span class="sub">What your team sees: A single operational inbox for every department.</span>
+      <ul class="pf">
+        <li>Requests routed to the correct department instantly</li>
+        <li>Every task tracked to completion with timestamps</li>
+        <li>Shift handovers captured digitally</li>
+        <li>Escalation rules trigger automatically</li>
+        <li>Full audit trail for management</li>
+        <li>Accountability tracking across shifts</li>
+      </ul>
+      <div class="sc"><p>A guest requests extra towels and a late checkout. The towel request goes to Housekeeping. The late checkout goes to Front Desk. Both are tracked. If Housekeeping hasn't confirmed in 15 minutes, the Duty Manager is notified. The guest never calls twice.</p></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pn">02<span>Revenue</span></div>
+    <div class="pc">
+      <h3>Revenue Protection</h3>
+      <span class="sub">What your team sees: A validation layer that catches errors before they become losses.</span>
+      <ul class="pf">
+        <li>Bookings checked against deposit policies</li>
+        <li>Rate integrity and inclusion accuracy validated</li>
+        <li>Flagged exceptions surfaced before arrival</li>
+        <li>Missed call revenue recovered via Voice Intelligence</li>
+        <li>Exception reporting with revenue-impact visibility</li>
+        <li>Structured reporting on revenue at risk</li>
+      </ul>
+      <div class="sc"><p>A group booking for 12 rooms: negotiated rate, breakfast included, deposit required. Lodgient validates each element. If the deposit is missing, it flags the booking to your revenue manager 48 hours before arrival — not at checkout when it's too late.</p></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pn">03<span>Voice</span></div>
+    <div class="pc">
+      <h3>Communication Intelligence</h3>
+      <span class="sub">What your team sees: Every guest interaction captured, transcribed, and actioned.</span>
+      <ul class="pf">
+        <li>AI voice handling — after-hours, overflow, or full-time</li>
+        <li>Every call transcribed, logged, and searchable</li>
+        <li>Service requests auto-created as tasks</li>
+        <li>Intelligent routing to the right department</li>
+        <li>Transcript logging and recording archive</li>
+        <li>No more scribbled messages or lost voicemails</li>
+      </ul>
+      <div class="rsai-cta">
+        <h4>Powered by RoomService AI</h4>
+        <p>Our AI voice engine is the fastest path into Lodgient. It handles room service ordering, guest requests, and call overflow — then feeds everything into the operational intelligence layer.</p>
+        <a href="/roomservice-ai" style="font-size:13px;font-weight:600;color:var(--gold)">Explore RoomService AI →</a>
+      </div>
+      <div class="sc" style="margin-top:20px"><p>11:30pm, Room 412 calls about a heating issue. RoomService AI answers instantly, creates a maintenance ticket, alerts the on-call engineer. By 11:50pm, resolved. Next morning, the Duty Manager sees the full record without asking anyone.</p></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pn">04<span>Workforce</span></div>
+    <div class="pc">
+      <h3>Workforce Coordination</h3>
+      <span class="sub">What your team sees: Real-time room status and task visibility across departments.</span>
+      <ul class="pf">
+        <li>Housekeeping task orchestration with live updates</li>
+        <li>Front Desk sees room readiness instantly</li>
+        <li>Maintenance requests routed and time-stamped</li>
+        <li>Cross-department visibility from one screen</li>
+        <li>Bottleneck detection before guests feel it</li>
+        <li>Room readiness governance</li>
+      </ul>
+      <div class="sc"><p>2:45pm. Fourteen rooms still need turning before the 3pm check-in wave. Lodgient shows which rooms are in progress, complete, or not started. The Supervisor reallocates team members. Front Desk sees live ETAs and offers arriving guests a drink in the lounge.</p></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pn">05<span>Executive</span></div>
+    <div class="pc">
+      <h3>Executive Intelligence</h3>
+      <span class="sub">What your team sees: Decision-ready insight across one property or fifty.</span>
+      <ul class="pf">
+        <li>Response times, completion rates, escalation frequency</li>
+        <li>Revenue protection metrics and recovered revenue</li>
+        <li>Communication volume and resolution speed</li>
+        <li>Cross-property benchmarking</li>
+        <li>Compliance trend tracking</li>
+        <li>Week-over-week operational trend tracking</li>
+      </ul>
+      <div class="sc"><p>Monday morning. The GM opens her dashboard. Property A: 94% SLA — up from 87%. Property B: missed-call spike on Friday night — staffing gap identified. Property C: three deposit exceptions flagged and resolved before arrival. Full picture in 60 seconds.</p></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta-s" style="text-align:center;padding:var(--pad) 0">
+<div class="container">
+  <h2 class="stitle center">See the platform in action.</h2>
+  <p class="sbody center" style="margin-bottom:32px">Book a private demonstration and see how Lodgient transforms hotel operations.</p>
+  <a href="/contact" class="btn btn-p">Request a Demonstration</a>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a><p>Operational intelligence for modern hospitality.</p><p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient</p></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="/roomservice-ai">RoomService AI</a></li><li><a href="/platform">Platform</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Ireland (HQ) · UK · USA</span><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</div></footer>
+<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+</body>
+</html>

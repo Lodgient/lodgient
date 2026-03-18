@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoomService AI — Lodgient</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.hero-rsai{padding:160px 0 80px;position:relative;overflow:hidden}
+.hero-rsai::before{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,85,0.08),transparent 70%)}
+.hero-rsai::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--gold);margin-bottom:24px}
+.hero-rsai h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.1;margin-bottom:20px;max-width:680px}
+.hero-rsai h1 em{font-style:italic;color:var(--gold)}
+.hero-rsai>div>p{font-size:18px;color:var(--txt2);line-height:1.7;max-width:540px;margin-bottom:32px}
+.how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
+.how-step{padding:28px 20px;background:var(--bg-card);border:1px solid var(--border);text-align:center;position:relative}
+.how-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px;z-index:1}
+.how-step:last-child::after{display:none}
+.how-num{font-family:var(--serif);font-size:32px;color:var(--gold-dim);margin-bottom:8px}
+.how-step h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.how-step p{font-size:12px;color:var(--txt3);line-height:1.5}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.cap-card{padding:36px;background:var(--bg-card);border:1px solid var(--border);transition:all .3s}
+.cap-card:hover{border-color:var(--gold-b);transform:translateY(-2px)}
+.cap-card h4{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:8px}
+.cap-card p{font-size:14px;color:var(--txt2);line-height:1.7}
+.cap-icon{font-size:24px;margin-bottom:16px}
+.int-flow{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:center}
+.code-block{background:var(--bg);border:1px solid var(--border);padding:32px;font-family:monospace}
+.code-block .label{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.code-block pre{font-size:13px;color:var(--txt2);line-height:1.8;margin:0;overflow-x:auto}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.metric{padding:32px;background:var(--bg-card);border:1px solid var(--border);text-align:center}
+.metric .mv{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--gold);margin-bottom:4px}
+.metric p{font-size:13px;color:var(--txt3);text-transform:uppercase;letter-spacing:0.5px}
+@media(max-width:900px){
+  .how-grid{grid-template-columns:1fr 1fr}
+  .how-step::after{display:none}
+  .cap-grid{grid-template-columns:1fr}
+  .int-flow{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/roomservice-ai" class="active">RoomService AI</a></li>
+    <li><a href="/platform">Platform</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/contact" class="btn btn-p btn-sm nav-cta">Book a Demo</a></li>
+  </ul>
+  <button class="mobile-toggle" aria-label="Menu">☰</button>
+</div></nav>
+
+<section class="hero-rsai">
+<div class="container">
+  <div class="badge">A Lodgient Product</div>
+  <h1>Room Service, rebuilt for <em>24/7 call coverage.</em></h1>
+  <p>Enterprise-grade AI voice system trained for hotel operations. Every call answered, every order confirmed — without increasing headcount.</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap">
+    <a href="/contact" class="btn btn-p">Book a Demo</a>
+    <a href="#how" class="btn btn-o">How It Works ↓</a>
+  </div>
+</div>
+</section>
+
+<!-- CHALLENGE -->
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">The Challenge</div>
+  <h2 class="stitle">Always on, never overwhelmed.</h2>
+  <p class="sbody">Peak hours shouldn't mean missed calls, order errors, or frustrated guests. Yet that's the reality for most hotel operations. Staff are stretched thin, upsells are inconsistent, and dietary notes get lost in translation — turning what should be a luxury service into an operational liability.</p>
+  <p class="sbody" style="margin-top:16px">This isn't a staffing problem. It's a call handling and accuracy problem — and it's solvable.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section class="spad" id="how">
+<div class="container">
+  <div class="eyebrow">How It Works</div>
+  <h2 class="stitle">Guest → AI → Kitchen</h2>
+  <div class="how-grid">
+    <div class="how-step"><div class="how-num">01</div><h4>Guest Calls</h4><p>From in-room phone or via chat</p></div>
+    <div class="how-step"><div class="how-num">02</div><h4>AI Answers</h4><p>Captures order, handles modifiers & allergies</p></div>
+    <div class="how-step"><div class="how-num">03</div><h4>Smart Upsells</h4><p>Context-aware drinks, desserts, add-ons</p></div>
+    <div class="how-step"><div class="how-num">04</div><h4>Order to Kitchen</h4><p>Direct POS integration, no manual entry</p></div>
+    <div class="how-step"><div class="how-num">05</div><h4>Guest Confirmed</h4><p>Instant SMS with details & ETA</p></div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAPABILITIES -->
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Capabilities</div>
+  <h2 class="stitle">Everything you need to run room service — smarter.</h2>
+  <div class="cap-grid">
+    <div class="cap-card"><div class="cap-icon">🎙</div><h4>AI Ordering (Chat + Voice)</h4><p>Natural language ordering with modifiers, substitutions, dietary notes, and multi-language support — 24/7 without staff involvement.</p></div>
+    <div class="cap-card"><div class="cap-icon">📈</div><h4>Intelligent Upsells</h4><p>Context-aware recommendations with time-based offers for drinks, desserts, add-ons, and bundles on every order.</p></div>
+    <div class="cap-card"><div class="cap-icon">🔗</div><h4>POS & Kitchen Integration</h4><p>Orders flow directly to your POS and kitchen systems with automatic routing — no manual re-entry, fewer errors.</p></div>
+    <div class="cap-card"><div class="cap-icon">💬</div><h4>SMS Confirmation</h4><p>Instant guest confirmation with clear delivery expectations, reducing follow-up calls and improving satisfaction.</p></div>
+    <div class="cap-card"><div class="cap-icon">📊</div><h4>Revenue Analytics</h4><p>Track average order value, upsell performance, peak demand, labour deflection, and executive-level dashboards.</p></div>
+    <div class="cap-card"><div class="cap-icon">👤</div><h4>Human Escalation</h4><p>Complex requests route to staff with full context. Emergency or urgent requests escalated immediately to Duty Manager.</p></div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- POS INTEGRATION -->
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Integration</div>
+  <h2 class="stitle">Your POS, supercharged.</h2>
+  <div class="int-flow">
+    <div>
+      <p style="font-size:16px;color:var(--txt2);line-height:1.7;margin-bottom:20px">Say goodbye to fragmented systems. RoomService AI connects directly with your existing hospitality management platforms to automate the busywork.</p>
+      <ul class="feat-list">
+        <li>Orders routed directly to the kitchen printer, formatted for your chefs</li>
+        <li>Menu changes in your POS reflect immediately in the AI</li>
+        <li>Out of stock? The AI knows before the guest orders</li>
+        <li>Angry guest or complex request? Instant patch to your Duty Manager</li>
+        <li>Works with Oracle Simphony, Silverware, Maestro, and more</li>
+      </ul>
+      <p style="font-size:13px;color:var(--txt3);margin-top:24px">Verified OHIP Integration · Seamless AI → POS in real-time</p>
+    </div>
+    <div class="code-block">
+      <div class="label">Live Order Flow</div>
+      <div style="font-size:13px;color:var(--txt3);margin-bottom:8px">POST /api/v1/checks/fire</div>
+      <pre>{
+  "room": 412,
+  "item": "Club Sandwich",
+  "modifiers": ["No Mayo", "Add Bacon"],
+  "upsell": "Glass_Malbec_Red",
+  "dietary": ["nut-free"],
+  "source": "voice_ai",
+  "timestamp": "2026-03-18T23:31:00Z",
+  "status": "confirmed",
+  "sms_sent": true
+}</pre>
+      <div style="margin-top:16px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:6px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#68D391;display:inline-block"></span> AI → POS → Kitchen in real-time
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY -->
+<section class="spad">
+<div class="container">
+  <div class="eyebrow">Why Hotels Choose RoomService AI</div>
+  <h2 class="stitle">Because it fixes the economics.</h2>
+  <p class="sbody" style="margin-bottom:12px">RoomService AI is not guest messaging software. It is room service revenue infrastructure.</p>
+  <div class="metrics">
+    <div class="metric"><div class="mv">↑</div><p>Order Completion Rate</p></div>
+    <div class="metric"><div class="mv">↑</div><p>Average Order Value</p></div>
+    <div class="metric"><div class="mv">↓</div><p>Missed Calls</p></div>
+    <div class="metric"><div class="mv">↓</div><p>Staffing Pressure</p></div>
+    <div class="metric"><div class="mv">↑</div><p>Service Speed</p></div>
+    <div class="metric"><div class="mv">↑</div><p>Guest Satisfaction</p></div>
+  </div>
+  <p style="font-size:15px;color:var(--txt2);margin-top:32px;max-width:600px">One additional upsell per order can often cover the entire system cost. And mistakes don't just cost money — they cost reviews, reputation, and repeat bookings.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LODGIENT -->
+<section class="spad">
+<div class="container">
+  <div style="padding:48px;background:linear-gradient(135deg,rgba(200,162,85,0.08),rgba(200,162,85,0.02));border:1px solid var(--gold-b)">
+    <div class="eyebrow">Part of the Lodgient Platform</div>
+    <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:16px">RoomService AI is where most hotels start.</h2>
+    <p style="font-size:16px;color:var(--txt2);line-height:1.7;max-width:600px;margin-bottom:24px">As a module within the Lodgient platform, RoomService AI feeds every guest interaction into the operational intelligence layer. Voice data becomes structured tasks. Missed calls become recovered revenue. Every order becomes operational insight.</p>
+    <p style="font-size:16px;color:var(--txt2);line-height:1.7;max-width:600px;margin-bottom:24px">Start with voice intelligence. Expand into full operational governance when you're ready.</p>
+    <a href="/platform" class="btn btn-o">Explore the Full Platform →</a>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta-s" style="text-align:center;padding:var(--pad) 0">
+<div class="container">
+  <h2 class="stitle center">Ready to reimagine room service?</h2>
+  <p class="sbody center" style="margin-bottom:32px">Book a private demo and see how RoomService AI increases revenue, reduces labour pressure, and modernises your operations.</p>
+  <a href="/contact" class="btn btn-p">Book a Demo</a>
+</div>
+</section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="/" class="nav-logo"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a><p>Operational intelligence for modern hospitality.</p><p style="margin-top:16px;font-size:11px;color:var(--txt3)">© 2026 Lodgient</p></div>
+    <div class="footer-col"><h4>Products</h4><ul><li><a href="/roomservice-ai">RoomService AI</a></li><li><a href="/platform">Platform</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>Ireland (HQ) · UK · USA</span><div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</div></footer>
+<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+</body>
+</html>
