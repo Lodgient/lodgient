@@ -5,24 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — Lodgient</title>
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
 .price-card{padding:48px;background:var(--bg-card);border:1px solid var(--border);display:flex;flex-direction:column}
-.price-card.featured{border-color:var(--gold-b);position:relative}
-.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:0;left:0;right:0;padding:8px;text-align:center;font-size:11px;font-weight:700;letter-spacing:1.5px;background:var(--gold);color:var(--bg)}
+.price-card.featured{border-color:var(--accent-b);position:relative}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:0;left:0;right:0;padding:8px;text-align:center;font-size:11px;font-weight:700;letter-spacing:1.5px;background:var(--accent);color:var(--bg)}
 .price-card.featured{padding-top:64px}
-.price-tier{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.price-tier{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .price-name{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:8px}
 .price-desc{font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:24px}
 .price-tag{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--txt);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
 .price-tag span{font-size:13px;color:var(--txt3);font-family:var(--sans);font-weight:400}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex-grow:1}
 .price-features li{font-size:14px;color:var(--txt2);display:flex;gap:10px;align-items:flex-start}
-.price-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.price-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
 .faq{margin-top:64px}
 .faq-item{border-bottom:1px solid var(--border);padding:24px 0}
 .faq-q{font-family:var(--serif);font-size:18px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.faq-q::after{content:'+';font-size:24px;color:var(--gold);transition:transform .3s}
+.faq-q::after{content:'+';font-size:24px;color:var(--accent);transition:transform .3s}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .faq-a p{padding-top:16px;font-size:15px;color:var(--txt2);line-height:1.7;max-width:600px}
 .faq-item.open .faq-q::after{transform:rotate(45deg)}
@@ -152,7 +154,7 @@
     <div class="footer-brand">
       <a href="/" class="nav-logo" style="margin-bottom:0"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
       <p>Operational intelligence for modern hospitality. Connecting departments, enforcing standards, protecting revenue.</p>
-      <p style="margin-top:16px;font-size:11px;color:var(--txt3)">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
+      <p style="margin-top:20px;font-size:11px;color:var(--txt3);font-weight:300">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
     </div>
     <div class="footer-col"><h4>Products</h4><ul>
       <li><a href="/roomservice-ai">RoomService AI</a></li>
@@ -180,6 +182,15 @@
   </div>
 </div>
 </footer>
-<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll('.reveal').forEach(el=>{
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  obs.observe(el);
+});
+</script>
 </body>
 </html>

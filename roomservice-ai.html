@@ -5,34 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RoomService AI — Lodgient</title>
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 .hero-rsai{padding:160px 0 80px;position:relative;overflow:hidden}
-.hero-rsai::before{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(181,196,166,0.08),transparent 70%)}
+.hero-rsai::before{content:'';position:absolute;top:-100px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.08),transparent 70%)}
 .hero-rsai::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
-.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--gold);margin-bottom:24px}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--accent-dim);border:1px solid var(--accent-b);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--accent);margin-bottom:24px}
 .hero-rsai h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.1;margin-bottom:20px;max-width:680px}
-.hero-rsai h1 em{font-style:italic;color:var(--gold)}
+.hero-rsai h1 em{font-style:italic;color:var(--accent)}
 .hero-rsai>div>p{font-size:18px;color:var(--txt2);line-height:1.7;max-width:540px;margin-bottom:32px}
 .how-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
 .how-step{padding:28px 20px;background:var(--bg-card);border:1px solid var(--border);text-align:center;position:relative}
-.how-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:18px;z-index:1}
+.how-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:18px;z-index:1}
 .how-step:last-child::after{display:none}
-.how-num{font-family:var(--serif);font-size:32px;color:var(--gold-num);margin-bottom:8px}
+.how-num{font-family:var(--serif);font-size:32px;color:var(--accent-num);margin-bottom:8px}
 .how-step h4{font-size:13px;font-weight:600;margin-bottom:4px}
 .how-step p{font-size:12px;color:var(--txt3);line-height:1.5}
 .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .cap-card{padding:36px;background:var(--bg-card);border:1px solid var(--border);transition:all .3s}
-.cap-card:hover{border-color:var(--gold-b);transform:translateY(-2px)}
+.cap-card:hover{border-color:var(--accent-b);transform:translateY(-2px)}
 .cap-card h4{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:8px}
 .cap-card p{font-size:14px;color:var(--txt2);line-height:1.7}
 .cap-icon{font-size:24px;margin-bottom:16px}
 .int-flow{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:center}
 .code-block{background:var(--bg);border:1px solid var(--border);padding:32px;font-family:monospace}
-.code-block .label{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.code-block .label{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
 .code-block pre{font-size:13px;color:var(--txt2);line-height:1.8;margin:0;overflow-x:auto}
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
 .metric{padding:32px;background:var(--bg-card);border:1px solid var(--border);text-align:center}
-.metric .mv{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--gold);margin-bottom:4px}
+.metric .mv{font-family:var(--serif);font-size:36px;font-weight:500;color:var(--accent);margin-bottom:4px}
 .metric p{font-size:13px;color:var(--txt3);text-transform:uppercase;letter-spacing:0.5px}
 @media(max-width:900px){
   .how-grid{grid-template-columns:1fr 1fr}
@@ -103,12 +105,12 @@
   <div class="eyebrow">Capabilities</div>
   <h2 class="stitle">Everything you need to run room service — smarter.</h2>
   <div class="cap-grid">
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div><h4>AI Ordering (Chat + Voice)</h4><p>Natural language ordering with modifiers, substitutions, dietary notes, and multi-language support — 24/7 without staff involvement.</p></div>
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg></div><h4>Intelligent Upsells</h4><p>Context-aware recommendations with time-based offers for drinks, desserts, add-ons, and bundles on every order.</p></div>
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h4>POS & Kitchen Integration</h4><p>Orders flow directly to your POS and kitchen systems with automatic routing — no manual re-entry, fewer errors.</p></div>
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>SMS Confirmation</h4><p>Instant guest confirmation with clear delivery expectations, reducing follow-up calls and improving satisfaction.</p></div>
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><h4>Revenue Analytics</h4><p>Track average order value, upsell performance, peak demand, labour deflection, and executive-level dashboards.</p></div>
-    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Human Escalation</h4><p>Complex requests route to staff with full context. Emergency or urgent requests escalated immediately to Duty Manager.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div><h4>AI Ordering (Chat + Voice)</h4><p>Natural language ordering with modifiers, substitutions, dietary notes, and multi-language support — 24/7 without staff involvement.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg></div><h4>Intelligent Upsells</h4><p>Context-aware recommendations with time-based offers for drinks, desserts, add-ons, and bundles on every order.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><h4>POS & Kitchen Integration</h4><p>Orders flow directly to your POS and kitchen systems with automatic routing — no manual re-entry, fewer errors.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>SMS Confirmation</h4><p>Instant guest confirmation with clear delivery expectations, reducing follow-up calls and improving satisfaction.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div><h4>Revenue Analytics</h4><p>Track average order value, upsell performance, peak demand, labour deflection, and executive-level dashboards.</p></div>
+    <div class="cap-card"><div class="cap-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Human Escalation</h4><p>Complex requests route to staff with full context. Emergency or urgent requests escalated immediately to Duty Manager.</p></div>
   </div>
 </div>
 </section>
@@ -146,8 +148,8 @@
   "status": "confirmed",
   "sms_sent": true
 }</pre>
-      <div style="margin-top:16px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:6px">
-        <span style="width:6px;height:6px;border-radius:50%;background:#9CB478;display:inline-block"></span> AI → POS → Kitchen in real-time
+      <div style="margin-top:16px;font-size:12px;color:var(--accent);display:flex;align-items:center;gap:6px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#6BCB77;display:inline-block"></span> AI → POS → Kitchen in real-time
       </div>
     </div>
   </div>
@@ -179,7 +181,7 @@
 <!-- LODGIENT -->
 <section class="spad">
 <div class="container">
-  <div style="padding:48px;background:linear-gradient(135deg,rgba(181,196,166,0.08),rgba(181,196,166,0.02));border:1px solid var(--gold-b)">
+  <div style="padding:48px;background:linear-gradient(135deg,rgba(201,169,110,0.08),rgba(201,169,110,0.02));border:1px solid var(--accent-b)">
     <div class="eyebrow">Part of the Lodgient Platform</div>
     <h2 style="font-family:var(--serif);font-size:28px;font-weight:500;margin-bottom:16px">RoomService AI is where most hotels start.</h2>
     <p style="font-size:16px;color:var(--txt2);line-height:1.7;max-width:600px;margin-bottom:24px">As a module within the Lodgient platform, RoomService AI feeds every guest interaction into the operational intelligence layer. Voice data becomes structured tasks. Missed calls become recovered revenue. Every order becomes operational insight.</p>
@@ -205,7 +207,7 @@
     <div class="footer-brand">
       <a href="/" class="nav-logo" style="margin-bottom:0"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
       <p>Operational intelligence for modern hospitality. Connecting departments, enforcing standards, protecting revenue.</p>
-      <p style="margin-top:16px;font-size:11px;color:var(--txt3)">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
+      <p style="margin-top:20px;font-size:11px;color:var(--txt3);font-weight:300">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
     </div>
     <div class="footer-col"><h4>Products</h4><ul>
       <li><a href="/roomservice-ai">RoomService AI</a></li>
@@ -233,6 +235,15 @@
   </div>
 </div>
 </footer>
-<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll('.reveal').forEach(el=>{
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  obs.observe(el);
+});
+</script>
 </body>
 </html>

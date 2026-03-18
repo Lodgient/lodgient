@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Platform — Lodgient</title>
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
 .pillar{display:grid;grid-template-columns:180px 1fr;gap:48px;padding:64px 0;border-bottom:1px solid var(--border)}
 .pillar:last-child{border-bottom:none}
-.pn{font-family:var(--serif);font-size:72px;font-weight:400;color:var(--gold-num);line-height:1}
+.pn{font-family:var(--serif);font-size:72px;font-weight:400;color:var(--accent-num);line-height:1}
 .pn span{display:block;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--txt3);margin-top:12px}
 .pc h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:8px}
-.pc .sub{font-size:14px;color:var(--gold);font-weight:500;margin-bottom:20px;display:block}
+.pc .sub{font-size:14px;color:var(--accent);font-weight:500;margin-bottom:20px;display:block}
 .pc p{font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:20px;max-width:600px}
 .pf{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none;margin-bottom:24px}
 .pf li{font-size:14px;color:var(--txt2);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
-.pf li::before{content:'—';color:var(--gold);flex-shrink:0}
-.sc{padding:20px 24px;background:var(--gold-dim);border-left:2px solid var(--gold);max-width:600px}
-.sc p{font-size:14px;font-style:italic;color:var(--gold-l);line-height:1.7;margin:0}
-.rsai-cta{padding:40px;background:linear-gradient(135deg,rgba(181,196,166,0.08),rgba(181,196,166,0.02));border:1px solid var(--gold-b);margin-top:24px;max-width:600px}
-.rsai-cta h4{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--gold);margin-bottom:8px}
+.pf li::before{content:'—';color:var(--accent);flex-shrink:0}
+.sc{padding:20px 24px;background:var(--accent-dim);border-left:2px solid var(--accent);max-width:600px}
+.sc p{font-size:14px;font-style:italic;color:var(--accent-l);line-height:1.7;margin:0}
+.rsai-cta{padding:40px;background:linear-gradient(135deg,rgba(201,169,110,0.08),rgba(201,169,110,0.02));border:1px solid var(--accent-b);margin-top:24px;max-width:600px}
+.rsai-cta h4{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--accent);margin-bottom:8px}
 .rsai-cta p{font-size:14px;color:var(--txt2);line-height:1.7;margin-bottom:16px}
 @media(max-width:900px){.pillar{grid-template-columns:1fr;gap:16px}.pf{grid-template-columns:1fr}}
 </style>
@@ -98,7 +100,7 @@
       <div class="rsai-cta">
         <h4>Powered by RoomService AI</h4>
         <p>Our AI voice engine is the fastest path into Lodgient. It handles room service ordering, guest requests, and call overflow — then feeds everything into the operational intelligence layer.</p>
-        <a href="/roomservice-ai" style="font-size:13px;font-weight:600;color:var(--gold)">Explore RoomService AI →</a>
+        <a href="/roomservice-ai" style="font-size:13px;font-weight:600;color:var(--accent)">Explore RoomService AI →</a>
       </div>
       <div class="sc" style="margin-top:20px"><p>11:30pm, Room 412 calls about a heating issue. RoomService AI answers instantly, creates a maintenance ticket, alerts the on-call engineer. By 11:50pm, resolved. Next morning, the Duty Manager sees the full record without asking anyone.</p></div>
     </div>
@@ -157,7 +159,7 @@
     <div class="footer-brand">
       <a href="/" class="nav-logo" style="margin-bottom:0"><div class="logo-mark"><span></span><span></span><span></span><span></span></div> Lodgient</a>
       <p>Operational intelligence for modern hospitality. Connecting departments, enforcing standards, protecting revenue.</p>
-      <p style="margin-top:16px;font-size:11px;color:var(--txt3)">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
+      <p style="margin-top:20px;font-size:11px;color:var(--txt3);font-weight:300">&copy; 2026 Lodgient<br>Technology licensed by Lodgient IP Ltd (Ireland)<br>Commercial operations by Lodgient Inc (Delaware, USA)</p>
     </div>
     <div class="footer-col"><h4>Products</h4><ul>
       <li><a href="/roomservice-ai">RoomService AI</a></li>
@@ -185,6 +187,15 @@
   </div>
 </div>
 </footer>
-<script>const n=document.getElementById('nav');window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>40));</script>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
+gsap.registerPlugin(ScrollTrigger);
+document.querySelectorAll('.reveal').forEach(el=>{
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  obs.observe(el);
+});
+</script>
 </body>
 </html>
