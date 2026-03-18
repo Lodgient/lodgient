@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;right:-300px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,85,0.06) 0%,transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:-200px;right:-300px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(181,196,166,0.06) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
 .hero-content{position:relative;z-index:1;padding-top:120px;padding-bottom:80px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:var(--gold-dim);border:1px solid var(--gold-b);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--gold);margin-bottom:32px}
@@ -48,7 +48,7 @@
 .pfeat{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;list-style:none;margin-bottom:20px}
 .pfeat li{font-size:14px;color:var(--txt2);padding:4px 0;display:flex;align-items:flex-start;gap:8px}
 .pfeat li::before{content:'—';color:var(--gold);flex-shrink:0}
-.rsai-box{padding:48px;background:linear-gradient(135deg,rgba(200,162,85,0.08),rgba(200,162,85,0.02));border:1px solid var(--gold-b);margin-top:32px}
+.rsai-box{padding:48px;background:linear-gradient(135deg,rgba(181,196,166,0.08),rgba(181,196,166,0.02));border:1px solid var(--gold-b);margin-top:32px}
 .rsai-box h4{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:8px;color:var(--gold)}
 .rsai-box p{font-size:15px;color:var(--txt2);line-height:1.7;max-width:600px}
 .legacy-item{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:var(--txt2);margin-bottom:12px}
@@ -138,7 +138,7 @@
   <div class="products-grid">
     <div class="pcard feat">
       <div>
-        <div class="picon" style="background:linear-gradient(135deg,rgba(200,162,85,0.2),rgba(200,162,85,0.05));color:var(--gold)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
+        <div class="picon" style="background:linear-gradient(135deg,rgba(181,196,166,0.2),rgba(181,196,166,0.05));color:var(--gold)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
         <span class="tag">Flagship Product</span>
         <h3>RoomService AI</h3>
         <p>Enterprise-grade AI voice system trained for hotel operations. Every call answered, every order confirmed, every request routed — without increasing headcount.</p>
@@ -164,14 +164,14 @@
   "status": "confirmed"
 }</pre>
           <div style="margin-top:16px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:6px">
-            <span style="width:6px;height:6px;border-radius:50%;background:#68D391;display:inline-block"></span> AI → POS in real-time
+            <span style="width:6px;height:6px;border-radius:50%;background:#9CB478;display:inline-block"></span> AI → POS in real-time
           </div>
         </div>
       </div>
     </div>
 
     <div class="pcard">
-      <div class="picon" style="background:linear-gradient(135deg,rgba(99,179,237,0.2),rgba(99,179,237,0.05));color:#63B3ED"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+      <div class="picon" style="background:linear-gradient(135deg,rgba(122,164,140,0.2),rgba(122,164,140,0.05));color:#7AA48C"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
       <span class="tag">Operations</span>
       <h3>Operational Command</h3>
       <p>A single operational inbox where every guest request, task, and department action is visible. Requests routed instantly, tasks tracked to completion.</p>
@@ -179,7 +179,7 @@
     </div>
 
     <div class="pcard">
-      <div class="picon" style="background:linear-gradient(135deg,rgba(104,211,145,0.2),rgba(104,211,145,0.05));color:#68D391"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="picon" style="background:linear-gradient(135deg,rgba(156,180,120,0.2),rgba(156,180,120,0.05));color:#9CB478"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <span class="tag">Revenue</span>
       <h3>Revenue Protection</h3>
       <p>Catches booking errors, missed deposits, and rate discrepancies before they become losses. Validates every booking against your policies.</p>
@@ -187,7 +187,7 @@
     </div>
 
     <div class="pcard">
-      <div class="picon" style="background:linear-gradient(135deg,rgba(252,129,74,0.2),rgba(252,129,74,0.05));color:#FC814A"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="picon" style="background:linear-gradient(135deg,rgba(180,168,120,0.2),rgba(180,168,120,0.05));color:#B4A878"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <span class="tag">Workforce</span>
       <h3>Workforce Coordination</h3>
       <p>Real-time visibility into room status, task assignments, and department workload. No radios. No WhatsApp. No guesswork.</p>
@@ -195,7 +195,7 @@
     </div>
 
     <div class="pcard">
-      <div class="picon" style="background:linear-gradient(135deg,rgba(183,148,244,0.2),rgba(183,148,244,0.05));color:#B794F4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
+      <div class="picon" style="background:linear-gradient(135deg,rgba(138,158,144,0.2),rgba(138,158,144,0.05));color:#8A9E90"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div>
       <span class="tag">Intelligence</span>
       <h3>Executive Dashboards</h3>
       <p>Cross-property visibility. SLA benchmarking. Trend tracking. The full operational picture in 60 seconds.</p>
