@@ -90,11 +90,18 @@ Healthy business, motivated seller. This is the default.
 | **Seller motivation** | **Scored ≥ 60 (see §2)** |
 | **Competition** | **Winnability ≥ 50 (see §2)** |
 
-Sectors: pool service, commercial cleaning, HVAC service (service-heavy, not
-new-construction), pest control, landscaping maintenance contracts, fire & life
-safety inspection, backflow testing, hood/kitchen exhaust cleaning, grease trap,
-document destruction, medical equipment servicing, parking lot maintenance,
-commercial compliance and inspection services, niche B2B route businesses.
+**Sector: see `NICHE-THESIS.md`.** We do not run a broad sector list. The thesis
+is one vertical, one metro, five deals. Current pick: **fire & life safety
+inspection and service, Tampa Bay**, with commercial pest control as the declared
+fallback. The buy box above is the general frame; the niche document narrows it,
+and the narrowed version is what the software screens against.
+
+The common shape we are looking for, and the reason for it: **recurring,
+legally mandated, unglamorous, route-based, licensed, and sold to businesses.**
+Compliance-mandated services are the best of these — the customer does not choose
+whether to buy, only from whom — and *licensed* compliance services are better
+still, because the license suppresses competition for every deal in the vertical
+while costing us one qualifier relationship amortized across all five.
 
 The common shape: **recurring, mandated, unglamorous, route-based, and sold to
 businesses rather than consumers.** Compliance-mandated services are the best of
