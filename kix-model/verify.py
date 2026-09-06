@@ -164,3 +164,88 @@ for row, lbl in spot:
 print("\n  ISSUES: " + ("none" if not issues else ""))
 for i in issues:
     print("   -", i)
+
+
+# ---- capital stack & debt service -------------------------------------------
+def pmt(principal, rate, years):
+    if principal <= 0:
+        return 0.0
+    i = rate / 12
+    n = years * 12
+    return principal * i / (1 - (1 + i) ** -n) * 12
+
+
+print("\n" + "=" * 78)
+print("CAPITAL STACK & DEBT SERVICE  (buy case)")
+
+RE_PSF, RE_COSTS, INJ, BANK_PCT, ADV7A = 150, 0.03, 0.20, 0.50, 0.85
+RATES = {"bank": (0.075, 25), "cdc": (0.065, 25), "sba7a": (0.1025, 10)}
+PTAX_PCT, COV = 0.017, 1.25
+
+for scen, wc, presell in ((A, 350_000, 150_000), (B, 550_000, 200_000)):
+    m = run(scen)
+    re_price = scen["sf"] * RE_PSF
+    re_total = re_price * (1 + RE_COSTS)
+    total_buy = re_total + m["capex"] + wc
+
+    elig = re_total + scen["sf"] * scen["fitout_psf"] + m["equip"]
+    bank = elig * BANK_PCT
+    cdc = elig * (1 - INJ - BANK_PCT)
+    inj504 = elig * INJ
+    non504 = total_buy - elig
+    l7a = non504 * ADV7A
+    inj7a = non504 - l7a
+
+    debt = bank + cdc + l7a
+    equity = inj504 + inj7a
+    ds = sum(pmt(p, *RATES[k]) for k, p in (("bank", bank), ("cdc", cdc), ("sba7a", l7a)))
+    rent_back = scen["sf"] * scen["rent_psf"]
+    ptax = re_price * PTAX_PCT
+
+    print(f"\n--- {scen['name']} ---")
+    print(f"  Real estate ({RE_PSF}/SF + {RE_COSTS:.0%})   ${re_total:,.0f}")
+    print(f"  Venue project cost               ${m['capex']:,.0f}")
+    print(f"  Working capital reserve          ${wc:,.0f}")
+    print(f"  TOTAL PROJECT COST (BUY)         ${total_buy:,.0f}")
+    print(f"  TOTAL PROJECT COST (LEASE)       ${m['capex'] - scen['sf']*15 + wc:,.0f}")
+    print(f"    504-eligible                   ${elig:,.0f}")
+    print(f"    Bank 1st ({BANK_PCT:.0%})                 ${bank:,.0f}   {pmt(bank,*RATES['bank']):>10,.0f}/yr")
+    print(f"    CDC debenture ({1-INJ-BANK_PCT:.0%})        ${cdc:,.0f}   {pmt(cdc,*RATES['cdc']):>10,.0f}/yr")
+    print(f"    SBA 7(a)                       ${l7a:,.0f}   {pmt(l7a,*RATES['sba7a']):>10,.0f}/yr")
+    print(f"  Total debt                       ${debt:,.0f}  ({debt/total_buy:.0%} of cost)")
+    print(f"  EQUITY REQUIRED                  ${equity:,.0f}")
+    print(f"  Less presold memberships         ${presell:,.0f}")
+    print(f"  NET EQUITY                       ${equity-presell:,.0f}")
+    print(f"  Annual debt service              ${ds:,.0f}")
+    print(f"  {'Year':<6}{'CADS':>12}{'DSCR':>9}{'Result':>8}{'FCF':>12}{'Cumulative':>13}")
+    cum = 0.0
+    y3fcf = y5fcf = 0.0
+    for i, (rev, eb, _) in enumerate(m["years"], 1):
+        cads = eb + rent_back - ptax
+        dscr = cads / ds
+        fcf = cads - ds
+        cum += fcf
+        if i == 3:
+            y3fcf = fcf
+        if i == 5:
+            y5fcf = fcf
+        print(f"  {i:<6}{cads:>12,.0f}{dscr:>9.2f}{'PASS' if dscr>=COV else 'FAIL':>8}"
+              f"{fcf:>12,.0f}{cum:>13,.0f}")
+    ne = equity - presell
+    print(f"  Y3 cash-on-cash on equity        {y3fcf/ne:.1%}")
+    print(f"  Y5 cash-on-cash on equity        {y5fcf/ne:.1%}")
+
+# ---- reference-quoting check for every sheet name needing quotes ------------
+need_quotes = [s for s in wb.sheetnames if not s.replace("_", "").isalnum()]
+bad = []
+for sh in wb.worksheets:
+    for row in sh.iter_rows():
+        for c in row:
+            if isinstance(c.value, str) and c.value.startswith("="):
+                for name in need_quotes:
+                    if f"{name}!" in c.value and f"'{name}'!" not in c.value:
+                        bad.append(f"{sh.title}!{c.coordinate}: unquoted '{name}' -> {c.value[:70]}")
+print(f"\n  Sheet names requiring quotes: {need_quotes}")
+print("  UNQUOTED REFERENCE ISSUES: " + ("none" if not bad else str(len(bad))))
+for b in bad[:20]:
+    print("   -", b)

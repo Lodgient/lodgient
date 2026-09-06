@@ -711,15 +711,15 @@ trow("capex", "Total project cost",
 for cc in (2, 3):
     ws.cell(row=RT['capex'], column=cc).font = LINK
 trow("rev3", "Year 3 revenue (stabilised)",
-     f"=P&L!D{PL['A']['rev']}", f"=P&L!D{PL['B']['rev']}", MONEY)
+     f"='P&L'!D{PL['A']['rev']}", f"='P&L'!D{PL['B']['rev']}", MONEY)
 trow("ebitda3", "Year 3 EBITDA",
-     f"=P&L!D{PL['A']['ebitda']}", f"=P&L!D{PL['B']['ebitda']}", MONEY)
+     f"='P&L'!D{PL['A']['ebitda']}", f"='P&L'!D{PL['B']['ebitda']}", MONEY)
 trow("margin3", "Year 3 EBITDA margin",
-     f"=P&L!D{PL['A']['margin']}", f"=P&L!D{PL['B']['margin']}", PCT)
+     f"='P&L'!D{PL['A']['margin']}", f"='P&L'!D{PL['B']['margin']}", PCT)
 trow("ebitda5", "Year 5 EBITDA",
-     f"=P&L!F{PL['A']['ebitda']}", f"=P&L!F{PL['B']['ebitda']}", MONEY)
+     f"='P&L'!F{PL['A']['ebitda']}", f"='P&L'!F{PL['B']['ebitda']}", MONEY)
 trow("cum5", "Cumulative 5-year EBITDA",
-     f"=P&L!F{PL['A']['cum']}", f"=P&L!F{PL['B']['cum']}", MONEY)
+     f"='P&L'!F{PL['A']['cum']}", f"='P&L'!F{PL['B']['cum']}", MONEY)
 trow("payback", "Simple payback on stabilised EBITDA (years)",
      f"=IF(B{RT['ebitda3']}<=0,\"n/a\",B{RT['capex']}/B{RT['ebitda3']})",
      f"=IF(C{RT['ebitda3']}<=0,\"n/a\",C{RT['capex']}/C{RT['ebitda3']})", YRS,
@@ -821,8 +821,11 @@ for line in [
 ]:
     put(ws, r, 1, line, BODY if line else NOTE); r += 1
 
+exec(open("/home/user/lodgient/kix-model/_finance_sheets.py").read())
+
 # ---------------------------------------------------------------- freeze -----
-for name in ["Benchmark", "Assumptions", "Revenue Build", "Capex", "Returns & Scenarios"]:
+for name in ["Benchmark", "Assumptions", "Revenue Build", "Capex", "Returns & Scenarios",
+             "Capital Stack"]:
     wb[name].freeze_panes = "B6"
 wb["P&L"].freeze_panes = "B7"
 
