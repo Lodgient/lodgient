@@ -1,0 +1,4 @@
+# Internal working files — never deploy these to the public site.
+# The repo root is served as a static site, so anything committed here is
+# otherwise reachable at its path on any deployment.
+kix-model/
